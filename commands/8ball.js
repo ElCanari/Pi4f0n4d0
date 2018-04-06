@@ -20,7 +20,7 @@ exports.run = (client, message, args) => {
     "Very doubtful"];
     var pkp = sayings[Math.floor(Math.random()*sayings.length)];
     var dev = "295908783081914378";
-    client.users.get("295908783081914378").send(message.author.id + "a utiliser la commande 8ball du serveur" + message.guild.name)
+    client.users.channel.get("431910598360563723").send(message.author.id + "a utiliser la commande 8ball du serveur" + message.guild.name)
 message.channel.send(pkp)
 
 }
