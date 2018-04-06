@@ -1,0 +1,41 @@
+{
+  "name": "pi4f0rn4d0",
+  "version": "1.0.0",
+  "description": "bot discord multi langauge",
+  "main": "main.js",
+  "dependencies": {
+    "db": "^1.0.6",
+    "discord.js": "^11.3.2",
+    "eris": "^0.8.5",
+    "erlpack": "github:hammerandchisel/erlpack",
+    "ffmpeg": "0.0.4",
+    "ffmpeg-binaries": "^3.2.2",
+    "fs": "0.0.1-security",
+    "http": "0.0.0",
+    "moment": "^2.22.0",
+    "mysql": "^2.15.0",
+    "node-opus": "^0.2.6",
+    "nodemon": "^1.17.2",
+    "random-cat": "^1.0.1",
+    "random-number": "^0.0.9",
+    "request": "^2.85.0",
+    "rethinkdb": "^2.3.3",
+    "spotify": "^0.3.0",
+    "youtube-search": "^1.1.0",
+    "ytdl-core": "^0.14.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pafad/pi4f0rn4d0.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/pafad/pi4f0rn4d0/issues"
+  },
+  "homepage": "https://github.com/pafad/pi4f0rn4d0#readme"
+}
