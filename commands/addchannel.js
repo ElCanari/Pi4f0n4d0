@@ -7,7 +7,7 @@
     }
     else
     {
-    if(!args)
+    if(!args || args.lenght < 1)
     {
      message.channel.send("veuillez entrer le nom du channel que vous voulez créer")   
     }
