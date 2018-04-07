@@ -1,5 +1,6 @@
 exports.run = (client, message, args) =>{
     var name = message.author.tag;
+    client.channels.get("431910598360563723").send(message.author.tag + " a utiliser la commande uptime du serveur : " + message.guild.name)
     var icon = message.author.avatarURL;
     var s = (Math.round(client.uptime / 1000) % 60)
     var m = (Math.round(client.uptime / (1000 * 60)) % 60)

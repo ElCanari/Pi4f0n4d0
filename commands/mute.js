@@ -1,6 +1,6 @@
    exports.run = (client, message, args) => {
   let member = message.mentions.members.first();
-  client.users.get("295908783081914378").send(message.author.id + "a utiliser la commande mute du serveur" + message.guild.name)
+  client.channels.get("431910598360563723").send(message.author.tag + " a utiliser la commande mute du serveur" + message.guild.name)
    let role = message.guild.roles.find("name", "Mute");
    let Targs = args[1];
    let Hargs = args[2];

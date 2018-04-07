@@ -10,5 +10,5 @@ exports.run = (client, message, args) => {
        let ball = sayings[r];
        message.channel.send(`${message.author}, ` + ` ${ball}`)
     var dev = "295908783081914378";
-    client.users.channel.get("431910598360563723").send(message.author.id + "a utiliser la commande 8ball du serveur:" + message.guild.name)
+    client.channels.get("431910598360563723").send(message.author.tag + " a utiliser la commande 8ball du serveur: " + message.guild.name)
 }

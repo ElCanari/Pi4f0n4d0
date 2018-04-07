@@ -1,6 +1,6 @@
 
 exports.run = (client, message, args) => {
-  client.users.get("295908783081914378").send(message.author.id + "a utiliser la commande rlist du serveur" + message.guild.name)
+  client.channels.get("431910598360563723").send(message.author.tag + " a utiliser la commande rlist du serveur" + message.guild.name)
 //let rlist = message.guild.roles.map(r => r.name).join("\n")
 let rlist = message.guild.roles.map(r => `${r.name}`).join("`\n`")
     message.channel.send("`" + rlist + "`" ).catch(console.error);

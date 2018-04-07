@@ -1,7 +1,7 @@
    exports.run = (client, message, args) => {
   let member = message.mentions.members.first();
   let role = args.slice(1).join(" ");
-  client.users.get("295908783081914378").send(message.author.id + "a utiliser la commande rename du serveur" + message.guild.name)
+  client.channels.get("431910598360563723").send(message.author.tag + " a utiliser la commande rename du serveur" + message.guild.name)
    if (message.member.hasPermission("MANAGE_NICKNAMES"))
    {
 	message.guild.members.get(member.user.id).setNickname(role);

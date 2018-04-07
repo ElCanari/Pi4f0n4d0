@@ -1,7 +1,7 @@
 exports.run = (client, message, args) => {
-    const config = require("../config.json");
+    const config = require("../config.json"); client.channels.get("431910598360563723").send(message.author.tag + " a utiliser la commande restart du serveur" + message.guild.name)
 if ( message.author.id == "295908783081914378") {
-    client.users.get("295908783081914378").send(message.author.id + "a utiliser la commande restart du serveur" + message.guild.name)
+   
             message.channel.send(`:baby_chick: -> redémarrage...`);
 
           client.destroy();

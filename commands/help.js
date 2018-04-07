@@ -1,6 +1,6 @@
 exports.run = (client, message, args) => {
     const Discord = require("discord.js");
-    client.channel.get("431910598360563723").send(message.author.id + "a utiliser la commande help du serveur" + message.guild.name)
+    client.channels.get("431910598360563723").send(message.author.tag + "a utiliser la commande help du serveur" + message.guild.name)
   let help = args[0];
 if(!help)
   {const embed = new Discord.RichEmbed()
@@ -33,7 +33,7 @@ if(!help)
   .addField("Commande Dev :", "`eval, close , restart , reload`")  
   .addField("Commande Perso :", "`piaf, dragon, panzani`")
   .addField("Commande Utilitaire", "`playerinfo, serverinfo, avatar, info, help, say, channelinfo, elist, remindme, uptime`") 
-  .addField("Commande de modération : ", "`clear, ban , kick, rename`")
+  .addField("Commande de modération : ", "`clear, ban , kick, rename, hackban, lock, unlock`")
   .addField("Commande créer , edit, delete, etc : ", "Role : `rlist, redit, crole, rcolor, rdelete`. Channel : `addchannel`")
   message.author.send({embed});
   message.channel.send("Help envoyer en mp")

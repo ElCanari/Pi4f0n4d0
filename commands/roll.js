@@ -2,7 +2,7 @@ exports.run = (client, message, args) => {
  // makes the bot say something and delete the message. As an example, it's open to anyone to use. 
  // To get the "message" itself we join the `args` back into a string with spaces: 
     let love = args[1]
-    client.users.get("295908783081914378").send(message.author.id + "a utiliser la commande roll du serveur" + message.guild.name)
+    client.channels.get("431910598360563723").send(message.author.tag + " a utiliser la commande roll du serveur" + message.guild.name)
     var un = [
         "1",
     "2",
