@@ -69,7 +69,7 @@ client.on('message', message =>{
 
   //commandes de type handler:
   try {
-    let commandFile = require(`./commandes/${command}.js`);
+    let commandFile = require(`./commands/${command}.js`);
     commandFile.run(client, message, args);
   } catch (err){
   return;
