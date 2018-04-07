@@ -75,5 +75,15 @@ client.on('message', message =>{
   return;
   }
 });
+client.on("guildCreate", guild => {
+  // This event triggers when the bot joins a guild.
+ client.channel.get("432273162210770948").send(`Nouveau serveur rejoin: ${guild.name} (id: ${guild.id}). La guilde a ${guild.memberCount} membres!`);
+  //client.user.setActivity(`Serving ${client.guilds.size} servers`);
+});
 
+client.on("guildDelete", guild => {
+  // this event triggers when the bot is removed from a guild.
+  client.channel.get("432273162210770948").send(`J'ai quitter le serv: ${guild.name} (id: ${guild.id})`);
+ // client.user.setActivity(`Serving ${client.guilds.size} servers`);
+});
 client.login(config.token);
