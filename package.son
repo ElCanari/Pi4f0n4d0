@@ -2,7 +2,7 @@
   "name": "pi4f0rn4d0",
   "version": "1.0.0",
   "description": "bot discord multi langauge",
-  "main": "main.js",
+  "main": "index.js",
   "dependencies": {
     "db": "^1.0.6",
     "discord.js": "^11.3.2",
