@@ -3,7 +3,6 @@ const Discord = require("discord.js");
 const path = require("path");
 const fs = require("fs");
 const prefix = "p7";
-let type = 1;
 const client = new Discord.Client();
 //rainbow
 const size    = config.colors;
@@ -46,7 +45,7 @@ function changeColor() {
 //online
 
 client.on('ready', ()=> {
-    client.user.setPresence({game: {name: `${prefix}help | créé par El Piou Piou#8720 et ๖̶̶̶ۣۣۜۜ͜ζ͜͡ᾰк!кᾰϟῠ『💎』#8754`,url: "https://twitch.tv/pafad0gaming",type}})
+    client.user.setActivity(`${prefix}help | créé par El Piou Piou#8720 et ๖̶̶̶ۣۣۜۜ͜ζ͜͡ᾰк!кᾰϟῠ『💎』#8754`,{type:"WATCHING"})
     console.log(`${client.user.tag} connecté !`)
     if(config.speed < 60000){console.log("The minimum speed is 60.000, if this gets abused your bot might get IP-banned"); process.exit(1);}
   setInterval(changeColor, config.speed);
