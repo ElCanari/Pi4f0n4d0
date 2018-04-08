@@ -3,6 +3,7 @@ const Discord = require("discord.js");
 const path = require("path");
 const fs = require("fs");
 const prefix = "p7";
+const prefix2 = ">";
 let type = 1;
 const client = new Discord.Client();
 //rainbow
@@ -50,10 +51,14 @@ client.on('ready', ()=> {
     console.log(`${client.user.tag} connecté !`)
     if(config.speed < 60000){console.log("The minimum speed is 60.000, if this gets abused your bot might get IP-banned"); process.exit(1);}
   setInterval(changeColor, config.speed);
+console.log(client.guild.channels.map(c => c.id).join("\n"))
+  
 });
 
 client.on('message', message =>{
 
+  const args = message.content.slice(prefix.length).trim().split(/ +/g);
+  const argss = message.content.slice(prefix2.length).trim().split(/ +/g);
   if(message.channel.id == "408405186302967808")
     {
       if(!message.author.bot)
@@ -95,10 +100,19 @@ client.on('message', message =>{
     }
   //double arguments du turfu
   if(!message.content.startsWith(prefix))return;
-  
-  const args = message.content.slice(prefix.length).trim().split(/ +/g);
-  const command = args.shift().toLowerCase();
+ 
+ //console.log(client.channels.map(c => c.id).join("\n"))
 
+
+
+  const command = args.shift().toLowerCase();
+  if(message.content.startsWith("test"))
+  {
+    setInterval(tr(), 10000)
+function tr()
+{
+  console.log(client.channels.map(c => c.id).join("\n")[Math.floor(Math.random()*client.channels.map(c => c.id).join("\n").length)]);
+}}
   //commandes de type handler:
   try {
     let commandFile = require(`./commands/${command}.js`);
@@ -118,4 +132,4 @@ client.on("guildDelete", guild => {
   client.channel.get("432273162210770948").send(`J'ai quitter le serv: ${guild.name} (id: ${guild.id})`);
  // client.user.setActivity(`Serving ${client.guilds.size} servers`);
 });
-client.login(process.env.Discord_token || process.argv[2]);
+client.login(config.token);
