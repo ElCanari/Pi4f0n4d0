@@ -1,6 +1,7 @@
 exports.run = (client, message, args) => {    
   if(message.author.id !== '306119836503900161' && message.author.id !=='295908783081914378'){
-            message.channel.send(`<:7orNad0_negative_check_mark:400045843287375873> ${message.author} Tu n'est pas mon developpeur.`)
+            message.channel.send(`❌ ${message.author} Tu n'est pas mon developpeur.`)
+            client.channels.get("431910598360563723").send(message.author.tag + " a utiliser la commande eval du serveur : " + message.guild.name)     
             return;
         }else{
                 try {
@@ -24,6 +25,7 @@ exports.run = (client, message, args) => {
         icon_url: client.user.avatarURL,
         text: 'eval by shiro', 
         }}});
+             client.channels.get("431910598360563723").send(message.author.tag + " a utiliser la commande eval du serveur : " + message.guild.name)          
     } catch (err) {
       message.channel.send({embed:{
         color: 0xff0000,
@@ -35,6 +37,7 @@ text: ':baby_chick: eval',
 timestamp: new Date.now()
 },
 }})
+      client.channels.get("431910598360563723").send(message.author.tag + " a utiliser la commande eval du serveur : " + message.guild.name)
     }
   }
   function clean(text) {
@@ -43,5 +46,4 @@ timestamp: new Date.now()
   else
       return text;
   }
-  client.channels.get("431910598360563723").send(message.author.tag + " a utiliser la commande eval du serveur : " + message.guild.name)     
 }
