@@ -4,7 +4,7 @@ exports.run = (client, message, args) => {
 let test111 =  message.mentions.members.first();
 
 if(!test111)
-if(message.author.presence.game.name == "null")
+if(!message.author.presence.game)
 {const embed = new Discord.RichEmbed()
   .setTitle("Information du joueur :")
   .setAuthor(message.author.username, message.author.avatarURL)
@@ -76,7 +76,7 @@ else
   message.channel.send({embed});
 }
 else{
-if(test111.presence.game.name == "null")
+if(!test111.presence.game)
 {
   const embed = new Discord.RichEmbed()
   .setTitle("Information du joueur :")
