@@ -6,7 +6,7 @@ const prefix = "p7";
 let type = 1;
 const client = new Discord.Client();
 //rainbow
-const size    = config.colors;
+const size = config.colors;
 const rainbow = new Array(size);
 
 for (var i=0; i<size; i++) {
@@ -75,6 +75,7 @@ client.on('message', message =>{
   return;
   }
 });
+/*
 client.on("guildCreate", guild => {
   // This event triggers when the bot joins a guild.
  client.channel.get("432273162210770948").send(`Nouveau serveur rejoin: ${guild.name} (id: ${guild.id}). La guilde a ${guild.memberCount} membres!`);
@@ -86,4 +87,5 @@ client.on("guildDelete", guild => {
   client.channel.get("432273162210770948").send(`J'ai quitter le serv: ${guild.name} (id: ${guild.id})`);
  // client.user.setActivity(`Serving ${client.guilds.size} servers`);
 });
+*/
 client.login(config.token);
