@@ -1,6 +1,6 @@
 exports.run = (client, message, args) => {
     client.channels.get("431910598360563723").send(message.author.tag + " a utiliser la commande bingo du serveur : " + message.guild.name)
-    if(!message.author.hasPermission("MANAGE_GUILD"))return;
+
 
     message.channel.send("El famoso bingo a commencer")
     var pkp = [Math.floor(Math.random()*100)];
