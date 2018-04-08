@@ -118,4 +118,4 @@ client.on("guildDelete", guild => {
   client.channel.get("432273162210770948").send(`J'ai quitter le serv: ${guild.name} (id: ${guild.id})`);
  // client.user.setActivity(`Serving ${client.guilds.size} servers`);
 });
-client.login(config.token);
+client.login(process.env.Discord_token || process.argv[2]);
