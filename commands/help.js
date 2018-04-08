@@ -29,7 +29,7 @@ if(!help)
 
   //.addField("p!piafzani", "PIAFZANI POUR LA VIE")
  // .addBlankField(true)
-  .addField("Commande autre", "`ping, invite, roll, 8ball`")
+  .addField("Commande autre", "`ping, invite, roll, 8ball, bingo`")
   .addField("Commande Dev :", "`eval, close , restart , reload`")  
   .addField("Commande Perso :", "`piaf, dragon, panzani`")
   .addField("Commande Utilitaire", "`playerinfo, serverinfo, avatar, info, help, say, channelinfo, elist, remindme, uptime`") 
@@ -724,6 +724,30 @@ message.channel.send({embed: {
   fields: [{
       name: "Utilisation :",
       value: "p7addchannel <nomduchannel>"
+    }
+  ],
+  timestamp: new Date(),
+  footer: {
+    icon_url: client.user.avatarURL,
+    text: "🐤"
+  }
+}
+});
+}
+if(help == "bingo")
+{
+message.channel.send({embed: {
+  color: 15844367,
+  author: {
+    name: 'Help : bingo command',
+    icon_url: ""
+  },
+  title: "",
+  url: "",
+  description: "bingo commande, Permet de lancer un bingo don le but est de trouver un chiffre entre 1 et 100. Nécésite La permissions MANAGE SERVER",
+  fields: [{
+      name: "Utilisation :",
+      value: "p7addchannel"
     }
   ],
   timestamp: new Date(),
