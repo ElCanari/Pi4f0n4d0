@@ -10,10 +10,10 @@
 	{
 let min = Math.floor(60000 * Math.sqrt(temp));
    setTimeout(Timer, min);
-	 message.channel.sendMessage("Vous allez être rapeller dans "+ temp + " minutes pour " + quoi);
+	 message.channel.send("Vous allez être rapeller dans "+ temp + " minutes pour " + quoi);
 	function Timer() {
 		
- message.author.sendMessage(quoi)
+ message.author.send(quoi)
   console.log(`DONE ! `);
 }
 	}
@@ -21,10 +21,10 @@ let min = Math.floor(60000 * Math.sqrt(temp));
 	{
 let hr = Math.floor(600000 * Math.sqrt(temp));
    setTimeout(Timer, hr);
-	 message.channel.sendMessage("Vous allez être rapeller dans "+ temp + " heures pour " + quoi);
+	 message.channel.send("Vous allez être rapeller dans "+ temp + " heures pour " + quoi);
 	function Timer() {
 		
- message.author.sendMessage(quoi)
+ message.author.send(quoi)
   console.log(`DONE ! `);
 }
 	}
