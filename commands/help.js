@@ -10,7 +10,7 @@ if(!help)
    * Alternatively, use "#00AE86", [0, 174, 134] or an integer number.
    */
   .setColor("RANDOM")
-  .setDescription("p!help <nomdelacommande> pour plus d'info")
+  .setDescription("p7 help <nomdelacommande> pour plus d'info")
   .setFooter("🐤", client.user.avatarURL)
 
   .setThumbnail(`http://copinette.centerblog.net/voir-photo?u=http://copinette.c.o.pic.centerblog.net/o/30454771.gif`)
@@ -51,7 +51,7 @@ if(!help)
     description: "Permet de donner le ping du bot , vérifier si il est en ligne",
     fields: [{
         name: "Utilisation :",
-        value: "p!ping"
+        value: "p7ping"
       }
     ],
     timestamp: new Date(),
@@ -75,7 +75,7 @@ message.channel.send({embed: {
   description: "Permet de donner l'invite du bot",
   fields: [{
       name: "Utilisation :",
-      value: "p!invite"
+      value: "p7invite"
     }
   ],
   timestamp: new Date(),
@@ -99,7 +99,7 @@ message.channel.send({embed: {
   description: "Permet de donner un nombre entre 1 et 6",
   fields: [{
       name: "Utilisation :",
-      value: "p!roll"
+      value: "p7roll"
     }
   ],
   timestamp: new Date(),
@@ -123,7 +123,7 @@ message.channel.send({embed: {
   description: "Permet de répondre à votre destin",
   fields: [{
       name: "Utilisation :",
-      value: "p!8ball <question>"
+      value: "p78ball <question>"
     }
   ],
   timestamp: new Date(),
@@ -147,7 +147,7 @@ message.channel.send({embed: {
   description: "Permet de faire un eval **DEV COMMANDE**",
   fields: [{
       name: "Utilisation :",
-      value: "p!eval <chose a eval>"
+      value: "p7eval <chose a eval>"
     }
   ],
   timestamp: new Date(),
@@ -171,7 +171,7 @@ message.channel.send({embed: {
   description: "Permet de restart le bot **DEV COMMANDE**",
   fields: [{
       name: "Utilisation :",
-      value: "p!restart"
+      value: "p7restart"
     }
   ],
   timestamp: new Date(),
@@ -195,7 +195,7 @@ message.channel.send({embed: {
   description: "Permet de close le bot **DEV COMMANDE**",
   fields: [{
       name: "Utilisation :",
-      value: "p!close"
+      value: "p7close"
     }
   ],
   timestamp: new Date(),
@@ -219,7 +219,7 @@ message.channel.send({embed: {
   description: "Permet de reload une commande **DEV COMMANDE**",
   fields: [{
       name: "Utilisation :",
-      value: "p!roll"
+      value: "p7roll"
     }
   ],
   timestamp: new Date(),
@@ -243,7 +243,7 @@ message.channel.send({embed: {
   description: "Piaf commande **PERSONNAL COMMANDE**",
   fields: [{
       name: "Utilisation :",
-      value: "p!piaf"
+      value: "p7piaf"
     }
   ],
   timestamp: new Date(),
@@ -267,7 +267,7 @@ message.channel.send({embed: {
   description: "dragon commande **PERSONNAL COMMANDE**",
   fields: [{
       name: "Utilisation :",
-      value: "p!dragon"
+      value: "p7dragon"
     }
   ],
   timestamp: new Date(),
@@ -291,7 +291,7 @@ message.channel.send({embed: {
   description: "Piafzani commande **PERSONNAL COMMANDE**",
   fields: [{
       name: "Utilisation :",
-      value: "p!piafzani"
+      value: "p7piafzani"
     }
   ],
   timestamp: new Date(),
@@ -315,7 +315,7 @@ message.channel.send({embed: {
   description: "Playerinfo commande donne les stats d'un joueur. Si il y a aucun argument il renvera vos stats.",
   fields: [{
       name: "Utilisation :",
-      value: "p!playerinfo [joueur]"
+      value: "p7playerinfo [joueur]"
     }
   ],
   timestamp: new Date(),
@@ -339,7 +339,7 @@ message.channel.send({embed: {
   description: "Serverinfo commande donne les stats d'une guilde.",
   fields: [{
       name: "Utilisation :",
-      value: "p!playerinfo "
+      value: "p7playerinfo "
     }
   ],
   timestamp: new Date(),
@@ -363,7 +363,7 @@ message.channel.send({embed: {
   description: "Avatar commande donne l'avatar de quelqu'un. Argument pour voir quelqu'un d'autre",
   fields: [{
       name: "Utilisation :",
-      value: "p!avatar <personne>"
+      value: "p7avatar <personne>"
     }
   ],
   timestamp: new Date(),
@@ -387,7 +387,7 @@ message.channel.send({embed: {
   description: "Info commande donne l'info du bot",
   fields: [{
       name: "Utilisation :",
-      value: "p!info"
+      value: "p7info"
     }
   ],
   timestamp: new Date(),
@@ -411,7 +411,7 @@ message.channel.send({embed: {
   description: "Help commande donne l'help du bot en mp",
   fields: [{
       name: "Utilisation :",
-      value: "p!help"
+      value: "p7help"
     }
   ],
   timestamp: new Date(),
@@ -435,7 +435,7 @@ message.channel.send({embed: {
   description: "Say commande dit ce que tu veut",
   fields: [{
       name: "Utilisation :",
-      value: "p!say <chose à dire>"
+      value: "p7say <chose à dire>"
     }
   ],
   timestamp: new Date(),
@@ -459,7 +459,7 @@ message.channel.send({embed: {
   description: "channelinfo commande donne les infos du channel dans le quel la commande a été fait",
   fields: [{
       name: "Utilisation :",
-      value: "p!channelinfo"
+      value: "p7channelinfo"
     }
   ],
   timestamp: new Date(),
@@ -483,7 +483,7 @@ message.channel.send({embed: {
   description: "Elist commande , donne les emojis du serveur",
   fields: [{
       name: "Utilisation :",
-      value: "p!elist"
+      value: "p7elist"
     }
   ],
   timestamp: new Date(),
@@ -507,7 +507,7 @@ message.channel.send({embed: {
   description: "Remind commande, un rappel. Ne pas inclure les <>",
   fields: [{
       name: "Utilisation :",
-      value: "p!remindme <quoi> <temp> <min/h>"
+      value: "p7remindme <quoi> <temp> <min/h>"
     }
   ],
   timestamp: new Date(),
@@ -531,7 +531,7 @@ message.channel.send({embed: {
   description: "Clear commande, Permet de suprimers des messages. Ne pas inclure les <>",
   fields: [{
       name: "Utilisation :",
-      value: "p!clear <cbmessage>"
+      value: "p7clear <cbmessage>"
     }
   ],
   timestamp: new Date(),
@@ -555,7 +555,7 @@ message.channel.send({embed: {
   description: "Ban commande, Permet de ban quelqu'un. Ne pas inclure les <>",
   fields: [{
       name: "Utilisation :",
-      value: "p!ban <personne>"
+      value: "p7ban <personne>"
     }
   ],
   timestamp: new Date(),
@@ -579,7 +579,7 @@ message.channel.send({embed: {
   description: "Kick commande, Permet de kick quelqu'un. Ne pas inclure les <>",
   fields: [{
       name: "Utilisation :",
-      value: "p!kick <personne>"
+      value: "p7kick <personne>"
     }
   ],
   timestamp: new Date(),
@@ -603,7 +603,7 @@ message.channel.send({embed: {
   description: "Rename commande, Permet de rename quelqu'un. Ne pas inclure les <>",
   fields: [{
       name: "Utilisation :",
-      value: "p!rename <personne> <enquoi>"
+      value: "p7rename <personne> <enquoi>"
     }
   ],
   timestamp: new Date(),
@@ -627,7 +627,7 @@ message.channel.send({embed: {
   description: "rlist commande, Permet de donner les roles de la guilde",
   fields: [{
       name: "Utilisation :",
-      value: "p!rlist"
+      value: "p7rlist"
     }
   ],
   timestamp: new Date(),
@@ -651,7 +651,7 @@ message.channel.send({embed: {
   description: "crole commande, Permet de donner add un role dans la guilde. Ne pas inclure les <>.",
   fields: [{
       name: "Utilisation :",
-      value: "p!crole <nomdurole>"
+      value: "p7crole <nomdurole>"
     }
   ],
   timestamp: new Date(),
@@ -675,7 +675,7 @@ message.channel.send({embed: {
   description: "Redit commande, Permet de changer le nom d'un role. Ne pas inclure les <>",
   fields: [{
       name: "Utilisation :",
-      value: "p!redit <roleachanger> <nouveaunom>"
+      value: "p7redit <roleachanger> <nouveaunom>"
     }
   ],
   timestamp: new Date(),
@@ -699,7 +699,7 @@ message.channel.send({embed: {
   description: "Rcolor commande, Permet de donner changer la couleur d'un role. Ne pas inclure les <>",
   fields: [{
       name: "Utilisation :",
-      value: "p!rcolor <roleachanger> <color>"
+      value: "p7rcolor <roleachanger> <color>"
     }
   ],
   timestamp: new Date(),
@@ -723,7 +723,7 @@ message.channel.send({embed: {
   description: "Addchannel commande, Permet de donner add un channel dans la guilde. Ne pas inclure les <>",
   fields: [{
       name: "Utilisation :",
-      value: "p!addchannel <nomduchannel>"
+      value: "p7addchannel <nomduchannel>"
     }
   ],
   timestamp: new Date(),

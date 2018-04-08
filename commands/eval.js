@@ -11,7 +11,7 @@ exports.run = (client, message, args) => {
       if (typeof evaled !== "string")
         evaled = require("util").inspect(evaled);
       message.channel.send({embed:
-          {color: "RANDOM",
+          {color: "#FFFF00",
         title: '',
         url: '',
         fields: [
@@ -23,7 +23,7 @@ exports.run = (client, message, args) => {
       ],
       footer:{
         icon_url: client.user.avatarURL,
-        text: 'eval by shiro', 
+        text: 'eval by :baby_chick:', 
         }}});
     } catch (err) {
       message.channel.send({embed:{
