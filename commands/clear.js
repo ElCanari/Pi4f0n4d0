@@ -12,7 +12,7 @@
 		message.channel.send("" + argsNB + " messages suprimer")
 		   setTimeout(Timer, 2000);
 	function Timer() {
-  message.channel.send(":thumbs_up:")
+  message.channel.send("<:cathype2:430489576490926081>")
   message.channel.bulkDelete(2);
   console.log(`DONE ! `);
 }
