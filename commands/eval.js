@@ -11,7 +11,7 @@ exports.run = (client, message, args) => {
       if (typeof evaled !== "string")
         evaled = require("util").inspect(evaled);
       message.channel.send({embed:
-          {color: "#FFFF00",
+          {color: 14208077,
         title: '',
         url: '',
         fields: [
@@ -27,7 +27,7 @@ exports.run = (client, message, args) => {
         }}});
     } catch (err) {
       message.channel.send({embed:{
-        color: "RANDOM",
+        color: 14208077,
 title: 'érreur',
 description: `\`\`\`xl\n${clean(err)}\n\`\`\``,
 footer: {
