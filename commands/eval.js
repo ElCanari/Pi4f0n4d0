@@ -10,7 +10,7 @@ exports.run = (client, message, args) => {
       if (typeof evaled !== "string")
         evaled = require("util").inspect(evaled);
       message.channel.send({embed:
-          {color: "0x00ff47,
+          {color: 0x00ff47,
         title: '',
         url: '',
         fields: [
