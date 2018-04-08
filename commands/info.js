@@ -19,8 +19,8 @@ const embed = new Discord.RichEmbed()
    * Takes a Date object, defaults to current date.
    */
   .setTimestamp()
-  .setURL(`https://discordapp.com/oauth2/authorize?client_id=381981256289615883&scope=bot&permissions=-1`)
-  .addField("Créateur :", "El Canari#8720")
+  .setURL(`https://discordapp.com/oauth2/authorize?client_id=431872024730796032&scope=bot&permissions=-1`)
+  .addField("Créateur :", "El Canari#8720 et ๖̶̶̶ۣۣۜۜ͜ζ͜͡кαϟῠуα.єχє 🌸#8754")
   .addField("Uptime", client.uptime )
   /*
    * Inline fields may not display as inline if the thumbnail and/or image is too big.
@@ -31,7 +31,7 @@ const embed = new Discord.RichEmbed()
    */
   //.addBlankField(true)
   .addField("Server :", client.guilds.size)
-  .addField("Server officiel :", "https://discord.gg/QKV6ATx")
+  .addField("Server officiel :", "soon")
   .addField("User :", client.users.size)
   .addField("Channel:", client.channels.size, true);
   //.addField("Emoji", "Faite p!elist");
