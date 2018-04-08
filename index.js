@@ -6,7 +6,7 @@ const prefix = "p7";
 let type = 1;
 const client = new Discord.Client();
 //rainbow
-const size = config.colors;
+const size    = config.colors;
 const rainbow = new Array(size);
 
 for (var i=0; i<size; i++) {
@@ -53,7 +53,39 @@ client.on('ready', ()=> {
 });
 
 client.on('message', message =>{
-    //blacklist du bot
+
+  if(message.channel.id == "408405186302967808")
+    {
+      if(!message.author.bot)
+      {
+        if(message.content.startsWith(">struct invest"))
+        {
+          var member = message.author.username
+          client.channels.get("420703531457052672").send(member + " a investi")
+        }
+      }
+    if(message.author.bot)
+    {
+      if(message.author.id == "280726849842053120")
+      {
+        if(message.content.startsWith("Vous avez"))
+        {
+          let cb = argss[3]
+          let quoi = argss[4]
+          //client.channels.get("420703531457052672").send('hophop' + cb)
+          client.channels.get("420703531457052672").send(cb + " de " +quoi)
+        }
+        else if(message.content.startsWith("Echec de"))
+        {
+          client.channels.get("420703531457052672").send("Annuler...")
+          client.channels.get("420703531457052672").bulkDelete(2)
+        }
+      }
+    }
+  
+   
+  } 
+//blacklist du bot
     if(message.author.bot)return;
     if(message.author.id === '281774692052762627')return;
     if(message.author.id === '336560869708398594')return;
@@ -75,7 +107,6 @@ client.on('message', message =>{
   return;
   }
 });
-/*
 client.on("guildCreate", guild => {
   // This event triggers when the bot joins a guild.
  client.channel.get("432273162210770948").send(`Nouveau serveur rejoin: ${guild.name} (id: ${guild.id}). La guilde a ${guild.memberCount} membres!`);
@@ -87,5 +118,4 @@ client.on("guildDelete", guild => {
   client.channel.get("432273162210770948").send(`J'ai quitter le serv: ${guild.name} (id: ${guild.id})`);
  // client.user.setActivity(`Serving ${client.guilds.size} servers`);
 });
-*/
 client.login(config.token);
