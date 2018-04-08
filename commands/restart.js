@@ -8,7 +8,7 @@ if ( message.author.id == "295908783081914378") {
 
             console.log("déconnection")
 
-            client.login("MzgxOTgxMjU2Mjg5NjE1ODgz.DXIpBQ._ADgE5O1uXaH7JoTjLRlQeb9glE");
+            client.login("NDMxODcyMDI0NzMwNzk2MDMy.DalDug.P9GXUx6L6WA5847OnryW0mTDfoA");
 
             console.log("redémarrage")
 
