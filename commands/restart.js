@@ -8,7 +8,7 @@ if ( message.author.id == "295908783081914378") {
 
             console.log("déconnection")
 
-            client.login(:eyes:);
+            client.login(process.env.Discord_token || process.argv[2]);
 
             console.log("redémarrage")
 
