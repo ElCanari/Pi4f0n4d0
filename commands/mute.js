@@ -7,7 +7,7 @@
    if (message.member.hasPermission("MANAGE_MESSAGES"))
    {
 
-        if (!Targs)
+        if (!member)
         {
             message.channel.send("veuillez mentionnez quelqu'un")
             return;
