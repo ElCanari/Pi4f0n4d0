@@ -81,7 +81,7 @@ const commands = {
 				} else if (m.content.startsWith('volume-')){
 					if (Math.round(dispatcher.volume*50) <= 0) return msg.channel.sendMessage(`Volume: ${Math.round(dispatcher.volume*50)}%`);
 					dispatcher.setVolume(Math.max((dispatcher.volume*50 - (2*(m.content.split('-').length-1)))/50,0));
-					message.channel.sendMessage(`:arrow_donw: Volume: ${Math.round(dispatcher.volume*50)}%`);
+					message.channel.sendMessage(`:arrow_down: Volume: ${Math.round(dispatcher.volume*50)}%`);
 				} else if (m.content.startsWith(config.prefix + 'time')){
 					message.channel.sendMessage(`<a:playing:459769573311512576> Time: ${Math.floor(dispatcher.time / 60000)}:${Math.floor((dispatcher.time % 60000)/1000) <10 ? '0'+Math.floor((dispatcher.time % 60000)/1000) : Math.floor((dispatcher.time % 60000)/1000)}`);
 				}
