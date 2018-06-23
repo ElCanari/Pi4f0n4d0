@@ -22,7 +22,7 @@
     "rethinkdb": "^2.3.3",
     "spotify": "^0.3.0",
     "youtube-search": "^1.1.0",
-    "ytdl-core": "^0.20.1"
+    "ytdl-core": "github:fent/node-ytdl-core#master"
   },
   "devDependencies": {},
   "scripts": {
