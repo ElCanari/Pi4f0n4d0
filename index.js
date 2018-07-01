@@ -43,37 +43,6 @@ function changeColor() {
     }
   }
 }
-//musique
-let queue = {};
-
-const commands = {
-	'join': (message) => {
-		return new Promise((resolve, reject) => {
-			const voiceChannel = message.member.voiceChannel;
-			if (!voiceChannel || voiceChannel.type !== 'voice') return message.reply("Je n'ai pas la permission de me connecter dans ton channel vocal...");
-			voiceChannel.join().then(connection => resolve(connection)).catch(err => reject(err));
-		});
-	},
-	'add': (message) => {
-		let url = message.content.split(' ')[1];
-		if (url == '' || url === undefined) return message.channel.sendMessage(`:x: Spécifier un lien youtube après le ${config.prefix}add`);
-		yt.getInfo(url, (err, info) => {
-			if(err) return message.channel.sendMessage('Invalid YouTube Link: ' + err);
-			if (!queue.hasOwnProperty(message.guild.id)) queue[message.guild.id] = {}, queue[message.guild.id].playing = false, queue[message.guild.id].songs = [];
-			queue[message.guild.id].songs.push({url: url, title: info.title, requester: message.author.username});
-			message.channel.sendMessage(`Ajout de:  **${info.title}** dans la playlist`);
-		});
-	},
-	'queue': (message) => {
-		if (queue[message.guild.id] === undefined) return message.channel.sendMessage(`:x: Ajoute de la musique avec ${config.prefix}add`);
-		let tosend = [];
-		queue[message.guild.id].songs.forEach((song, i) => { tosend.push(`${i+1}. ${song.title} - Demandé par: ${song.requester}`);});
-		message.channel.sendMessage(`__Playlist de **${message.guild.name}:**__ Il y a **${tosend.length}** dans la playlist ${(tosend.length > 15 ? '*[Only next 15 shown]*' : '')}\n\`\`\`${tosend.slice(0,15).join('\n')}\`\`\``);
-	},
-	'reboot': (message) => {
-		if (message.author.id == "306119836503900161") process.exit(); //Requires a node module like Forever to work.
-	}
-};
 //online
 client.on('ready', ()=> {
     client.user.setPresence({game:{name:`${config.prefix}help sur ${client.guilds.size} serveurs`,url: "https://www.twitch.tv/discordapp",type}})
@@ -90,8 +59,6 @@ client.on('message', message =>{
   // This is the best way to define args. Trust me.
   const args = message.content.slice(prefix.length).trim().split(/ +/g);	
   const command = args.shift().toLowerCase();
-  //musique
-  if (commands.hasOwnProperty(message.content.toLowerCase().slice(config.prefix.length).split(' ')[0])) commands[message.content.toLowerCase().slice(config.prefix.length).split(' ')[0]](message);
   // The list of if/else is replaced with those simple 2 lines:
   try {
     let commandFile = require(`./commandes/${command}.js`);
