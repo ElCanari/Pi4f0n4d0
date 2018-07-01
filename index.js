@@ -1,7 +1,6 @@
 const config = require("./config.json");
 const Discord = require("discord.js");
 const fs = require("fs");
-const yt = require("ytdl-core")
 const prefix = config.prefix;
 const client = new Discord.Client();
 let type = 1;
