@@ -131,16 +131,6 @@ client.on('ready', ()=> {
     if(config.speed < 60000){console.log("The minimum speed is 60.000, if this gets abused your bot might get IP-banned"); process.exit(1);}
   setInterval(changeColor, config.speed);
 });
-//rejoins un serv
-client.on("guildCreate", guild => {
-  client.channels.get("452413263427141632").send(`j'ai rejoin le serveur ${guild.name}[${guild.id}] dirigé par: ${guild.owner.user.tag} ayant ${guild.members.size} membres!`)
-client.user.setPresence({game:{name:`${config.prefix}help sur ${client.guilds.size} serveurs`,url: "https://www.twitch.tv/discordapp",type}})
-})
-//part d'un serv
-client.on("guildDelete", guild => {
-  client.channels.get("452413263427141632").send(`j'ai quitté le serveur ${guild.name}[${guild.id}] dirigé par: ${guild.owner.user.tag} ayant ${guild.members.size} membres!`)
-  client.user.setPresence({game:{name:`${config.prefix}help sur ${client.guilds.size} serveurs`,url: "https://www.twitch.tv/discordapp",type}})	
-})
 //définir message
 client.on('message', message =>{
     //blacklist du bot
