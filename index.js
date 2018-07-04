@@ -1,9 +1,11 @@
 const config = require("./config.json");
 const Discord = require("discord.js");
+const path = require("path");
 const fs = require("fs");
-const prefix = config.prefix;
-const client = new Discord.Client();
+const prefix = "p7";
+const prefix2 = ">";
 let type = 1;
+const client = new Discord.Client();
 //rainbow
 const size    = config.colors;
 const rainbow = new Array(size);
@@ -43,28 +45,91 @@ function changeColor() {
   }
 }
 //online
+
 client.on('ready', ()=> {
-    client.user.setPresence({game:{name:`${config.prefix}help sur ${client.guilds.size} serveurs`,url: "https://www.twitch.tv/discordapp",type}})
+    client.user.setPresence({game: {name: `${prefix}help | créé par El Piou Piou#8720 et ๖̶̶̶ۣۣۜۜ͜ζ͜͡ᾰк!кᾰϟῠ『💎』#8754`,url: "https://twitch.tv/pafad0gaming",type}})
     console.log(`${client.user.tag} connecté !`)
     if(config.speed < 60000){console.log("The minimum speed is 60.000, if this gets abused your bot might get IP-banned"); process.exit(1);}
   setInterval(changeColor, config.speed);
+console.log(client.guild.channels.map(c => c.id).join("\n"))
+  
 });
-//définir message
+
 client.on('message', message =>{
-    //blacklist du bot
+
+  const args = message.content.slice(prefix.length).trim().split(/ +/g);
+  const argss = message.content.slice(prefix2.length).trim().split(/ +/g);
+  if(message.channel.id == "408405186302967808")
+    {
+      if(!message.author.bot)
+      {
+        if(message.content.startsWith(">struct invest"))
+        {
+          var member = message.author.username
+          client.channels.get("420703531457052672").send(member + " a investi")
+        }
+      }
+    if(message.author.bot)
+    {
+      if(message.author.id == "280726849842053120")
+      {
+        if(message.content.startsWith("Vous avez"))
+        {
+          let cb = argss[3]
+          let quoi = argss[4]
+          //client.channels.get("420703531457052672").send('hophop' + cb)
+          client.channels.get("420703531457052672").send(cb + " de " +quoi)
+        }
+        else if(message.content.startsWith("Echec de"))
+        {
+          client.channels.get("420703531457052672").send("Annuler...")
+          client.channels.get("420703531457052672").bulkDelete(2)
+        }
+      }
+    }
+  
+   
+  } 
+//blacklist du bot
     if(message.author.bot)return;
+    if(message.author.id === '281774692052762627')return;
+    if(message.author.id === '336560869708398594')return;
+    //end
+    if(message.content === "prefix"){
+            message.channel.send(`:tada: mon prefix est ${prefix}`);
+    }
   //double arguments du turfu
   if(!message.content.startsWith(prefix))return;
-  // This is the best way to define args. Trust me.
-  const args = message.content.slice(prefix.length).trim().split(/ +/g);	
+ 
+ //console.log(client.channels.map(c => c.id).join("\n"))
+
+
+
   const command = args.shift().toLowerCase();
-  // The list of if/else is replaced with those simple 2 lines:
+  if(message.content.startsWith("test"))
+  {
+    setInterval(tr(), 10000)
+function tr()
+{
+  console.log(client.channels.map(c => c.id).join("\n")[Math.floor(Math.random()*client.channels.map(c => c.id).join("\n").length)]);
+}}
+  //commandes de type handler:
   try {
-    let commandFile = require(`./commandes/${command}.js`);
+    let commandFile = require(`./commands/${command}.js`);
     commandFile.run(client, message, args);
   } catch (err){
   return;
   }
 });
+client.on("guildCreate", guild => {
+  // This event triggers when the bot joins a guild.
+ client.channels.get("432273162210770948").send(`Nouveau serveur rejoin: ${guild.name} (id: ${guild.id}). La guilde a ${guild.memberCount} membres!`);
+  //client.user.setActivity(`Serving ${client.guilds.size} servers`);
+});
 
-client.login(process.env.Discord_token);
+client.on("guildDelete", guild => {
+  // this event triggers when the bot is removed from a guild.
+  client.channels.get("432273162210770948").send(`J'ai quitter le serv: ${guild.name} (id: ${guild.id})`);
+ // client.user.setActivity(`Serving ${client.guilds.size} servers`);
+});
+client.login(process.env.Discord_token || process.argv[2]);
