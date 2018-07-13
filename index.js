@@ -19,7 +19,7 @@ fs.readdir("./commandes/", (err, files) => {
   }
 
   jsFile.forEach((f, i) =>{
-    let props = require(`./commandes/${f}`)
+    let props = require(`./commands/${f}`)
     console.log(`${f} loaded !`)
     client.commands.set(props.help.name, props)
   })
