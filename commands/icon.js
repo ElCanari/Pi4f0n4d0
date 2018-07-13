@@ -1,5 +1,8 @@
-exports.run = (client, message, args) => {
-        client.channels.get("431910598360563723").send(message.author.tag + " a utiliser la commande icon du serveur" + message.guild.name)
+module.exports.run = async (client, message, args) => {
         message.channel.send(message.guild.iconURL);        
 
+}
+
+module.exports.help = {
+        name:"icon"
 }
