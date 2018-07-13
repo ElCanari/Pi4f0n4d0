@@ -1,23 +1,17 @@
-exports.run = (client, message, args) => {
-    const config = require("../config.json"); client.channels.get("431910598360563723").send(message.author.tag + " a utiliser la commande restart du serveur" + message.guild.name)
-if ( message.author.id == "295908783081914378") {
-   
-            message.channel.send(`:baby_chick: -> redémarrage...`);
+module.exports.run = async (client, message, args) => {
+    const config = require("../config")
+        if (message.author.id == "306119836503900161") {
+            message.channel.send(`:gear: -> redémarrage...`);
+          client.destroy();
+            console.log("déconnection")
+            client.login(config.token);
+            console.log("redémarrage")
+            console.log(`${clien.user.tag} connecté !`)
+  }else{
+    message.channel.send(`:x: ${message.author} tu n'est pas mon developpeur.`)
+  }
+}
 
-          client.destroy();
-
-            console.log("déconnection")
-
-            client.login("MzgxOTgxMjU2Mjg5NjE1ODgz.DXIpBQ._ADgE5O1uXaH7JoTjLRlQeb9glE");
-
-            console.log("redémarrage")
-
-            console.log(`${client.user.tag} connecté !`)
-
-  }else{
-
-    message.channel.send(`:x: ${message.author} tu n'est pas mon developpeur.`)
-
-  }
-
+module.exports.help = {
+  name: "restart"
 }

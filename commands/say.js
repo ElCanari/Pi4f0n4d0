@@ -1,12 +1,19 @@
-exports.run = (client, message, args) => {
- // makes the bot say something and delete the message. As an example, it's open to anyone to use. 
-    // To get the "message" itself we join the `args` back into a string with spaces: 
-    if(message.author.id !== "295908783081914378")return;
-    client.channels.get("431910598360563723").send(message.author.tag + " a utiliser la commande say du serveur" + message.guild.name)
-    const sayMessage = args.join(" ");
-    // Then we delete the command message (sneaky, right?). The catch just ignores the error with a cute smiley thing.
-    message.delete().catch(O_o=>{}); 
-    // And we get the bot to say the thing: 
+module.exports.run = async (client, message, args) => {
+    const sayMessage = message.content.substr(4);
+  if(message.author.id !== "306119836503900161"){
+   message.channel.send("t'es qui pour me dire quoi dire? xD")
+    return;
+  }else{
+    if(message.author.id === "310474739766394882"){
+    message.delete().catch(O_o=>{});
     message.channel.send(sayMessage);
-    
+  }else{
+    message.delete().catch(O_o=>{});
+    message.channel.send(sayMessage);
+  }
+  }
+}
+
+module.exports.help = {
+  name: "say"
 }

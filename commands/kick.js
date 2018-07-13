@@ -1,4 +1,4 @@
-exports.run = (client, message, args) => {
+module.exports.run = async (client, message, args) => {
         let raison = message.content.substr(28);
         let kickMember = message.guild.member(message.mentions.users.first());
         if(!message.member.hasPermissions("KICK_MEMBERS")){
@@ -27,3 +27,7 @@ exports.run = (client, message, args) => {
         }
     }
 }
+
+module.exports.help = {
+    name: "kick"
+  }

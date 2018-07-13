@@ -1,6 +1,7 @@
-
-exports.run = (client, message, args) => {
-      client.channels.get("431910598360563723").send(message.author.tag + " a utiliser la commande ping du serveur" + message.guild.name)
-      //  message.channel.send(new Date().getTime() - message.createdTimestamp + " ms");        
-message.channel.send(client.ping+ "ms")
+module.exports.run = async (client, message) => {
+message.channel.send("Pong !").then(m => m.edit(`:ping_pong: __${Math.round(message.author.client.ping + client.ping)}__ ms !`))
 }
+
+module.exports.help = {
+    name: "ping"
+  }

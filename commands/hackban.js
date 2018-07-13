@@ -1,10 +1,19 @@
-exports.run = (client, message, args) => {
-    client.channels.get("431910598360563723").send(message.author.tag + " a utiliser la commande hackban du serveur : "+ message.guild.name)
-if (!args){
-  message.channel.send(":x: Spécifiez une id à bannir.");
-}else{
-    message.guild.ban(args).then(() => {
-        message.channel.send("l'utilisateur `"+args.tag+" a été ban.`")
-    })
+module.exports.run = async (client, message, args) => {
+    if(!args[0] || args.length < 1){
+        message.channel.send(":x: Spécifiez une id d'utilisateur à bannir.")
+        return
+    }else{
+    var toBanId = client.users.find("id", args[0])
+    if(!toBanId){
+        message.channel.send(":x: je ne trouve pas l'utilisateur à bannir.")
+    }else{
+    message.guild.ban(toBanId).then(() => {
+    message.channel.send("**"+toBanId.tag+"** a été ban.")
+}).catch(console.error)
+        }
+    }
 }
-}
+
+module.exports.help = {
+    name: "hackban"
+  }

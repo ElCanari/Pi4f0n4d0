@@ -1,7 +1,16 @@
-exports.run = (client, message, args) => {
-const config = require("../config.json");
-client.channels.get("431910598360563723").send(message.author.tag + "a utiliser la commande invite du serveur" + message.guild.name)
-  
-message.channel.send(`<:gwen:372168110251180042> <:gwen:372168110251180042> https://discordapp.com/oauth2/authorize?client_id=431872024730796032&scope=bot&permissions=-1`)
+module.exports.run = async (client,message, args) => {
+  message.channel.send('', { embed: {
+    color: 0x9101ff,
+    title: "Tu veux m'inviter voici le lien:",
+    url: '',
+    description: "https://discordapp.com/oauth2/authorize?client_id=453648303528345611&scope=bot&permissions=-1",
+    footer: {
+      icon_url: client.user.avatarURL,
+      text: `${client.user.username} by shiro`
+    },
+  }})
+}
 
+module.exports.help = {
+  name: "invite"
 }
