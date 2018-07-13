@@ -1,5 +1,4 @@
-
-  exports.run = (client, message, args) => {
+module.exports.run = async (client, message, args) => {
     client.channels.get("431910598360563723").send(message.author.tag + " a utiliser la commande rdelete du serveur" + message.guild.name)
     let reason = args.slice(1).join(" ");
     let name = args[0];
@@ -15,4 +14,8 @@
          .then(r => console.log(`Deleted role ${r}`))
          .catch(console.error);
         }
+}
+
+module.exports.help = {
+  name:"rdelete"
 }
