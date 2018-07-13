@@ -1,4 +1,4 @@
-   exports.run = (client, message, args) => {
+module.exports.run = (client, message, args) => {
 	//let personne = message.content.split(" ").slice(1);
    //let role = message.content.split(" " + personne + " ").slice(1);
 	let quoi = args[0]; // Remember arrays are 0-based!.
@@ -15,8 +15,7 @@ let min = Math.floor(60000 * Math.sqrt(temp));
   console.log(`DONE ! `);
 }
 	}
-		if (temps == "h")
-	{
+		if (temps == "h"){
 let hr = Math.floor(600000 * Math.sqrt(temp));
    setTimeout(Timer, hr);
 	 message.channel.sendMessage("Vous allez être rapeller dans "+ temp + " heures pour " + quoi);
@@ -29,5 +28,5 @@ let hr = Math.floor(600000 * Math.sqrt(temp));
 }
    
 module.exports.help = {
-	name:"remindme", "rmd"
+	name:"remindme" && "rmd"
 }
