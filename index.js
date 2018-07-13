@@ -6,6 +6,25 @@ const prefix = "p7";
 const prefix2 = ">";
 let type = 1;
 const client = new Discord.Client();
+//best handler ever
+fs.readdir("./commandes/", (err, files) => {
+  
+  if(err) console.log(err);
+
+  let jsFile = files.filter(f => f.split(".").pop() === "js")
+
+  if(jsFile.length <= 0 ){
+     console.log("Coudln't find commands")
+     return;
+  }
+
+  jsFile.forEach((f, i) =>{
+    let props = require(`./commandes/${f}`)
+    console.log(`${f} loaded !`)
+    client.commands.set(props.help.name, props)
+  })
+})
+
 //rainbow
 const size    = config.colors;
 const rainbow = new Array(size);
@@ -57,8 +76,17 @@ console.log(client.guild.channels.map(c => c.id).join("\n"))
 
 client.on('message', message =>{
 
-  const args = message.content.slice(prefix.length).trim().split(/ +/g);
-  const argss = message.content.slice(prefix2.length).trim().split(/ +/g);
+  
+ 
+  let messageArray = message.content.split(" ");
+  let cmd = messageArray[0];
+  let args = messageArray.slice(1);
+  let argss = messageArray.slice(1);
+
+  let commandFile = client.commands.get(cmd.slice(prefix.length));
+  let commandFile2 = client.commands.get(cmd.slice(prefix2.length));
+  if(commandFile) commandFile.run(client, message, args) && client.channels.get("431910598360563723").send(`${message.author.tag} a utilisé la commande ${commandFile} du serveur ${message.guild.name}`);
+  if(commandFile2) commandFile.run(client, message, args) && client.channels.get("431910598360563723").send(`${message.author.tag} a utilisé la commande ${commandFile2} du serveur ${message.guild.name}`);
   if(message.channel.id == "408405186302967808")
     {
       if(!message.author.bot)
@@ -104,22 +132,6 @@ client.on('message', message =>{
  //console.log(client.channels.map(c => c.id).join("\n"))
 
 
-
-  const command = args.shift().toLowerCase();
-  if(message.content.startsWith("test"))
-  {
-    setInterval(tr(), 10000)
-function tr()
-{
-  console.log(client.channels.map(c => c.id).join("\n")[Math.floor(Math.random()*client.channels.map(c => c.id).join("\n").length)]);
-}}
-  //commandes de type handler:
-  try {
-    let commandFile = require(`./commands/${command}.js`);
-    commandFile.run(client, message, args);
-  } catch (err){
-  return;
-  }
 });
 client.on("guildCreate", guild => {
   // This event triggers when the bot joins a guild.
