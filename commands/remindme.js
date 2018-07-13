@@ -4,10 +4,8 @@
 	let quoi = args[0]; // Remember arrays are 0-based!.
 	let temp = args[1];
 	let temps = args[2];
-	client.channels.get("431910598360563723").send(message.author.tag + " a utiliser la commande remindme du serveur" + message.guild.name)
        
-	if (temps == "min")
-	{
+	if (temps == "min"){
 let min = Math.floor(60000 * Math.sqrt(temp));
    setTimeout(Timer, min);
 	 message.channel.sendMessage("Vous allez être rapeller dans "+ temp + " minutes pour " + quoi);
@@ -26,8 +24,10 @@ let hr = Math.floor(600000 * Math.sqrt(temp));
 		
  message.author.sendMessage(quoi)
   console.log(`DONE ! `);
-}
+		}
 	}
-
-	
-   }
+}
+   
+module.exports.help = {
+	name:"remindme", "rmd"
+}
