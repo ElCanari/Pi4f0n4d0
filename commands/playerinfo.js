@@ -1,6 +1,5 @@
-exports.run = (client, message, args) => {
+module.exports.run = async (client, message, args) => {
     const Discord = require("discord.js");
-    client.channels.get("431910598360563723").send(message.author.tag + " a utiliser la commande playerinfo du serveur" + message.guild.name)
 let test111 =  message.mentions.members.first();
 
 if(!test111)
@@ -148,4 +147,8 @@ if(!test111.presence.game.name)
   message.channel.send({embed});
 }
 }
+}
+
+module.exports.help = {
+    name:"playerinfo"
 }
