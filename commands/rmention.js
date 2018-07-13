@@ -1,5 +1,4 @@
-
-  exports.run = (client, message, args) => {
+module.exports.run = async (client, message, args) => {
     client.channels.get("431910598360563723").send(message.author.tag + " a utiliser la commande rmention du serveur" + message.guild.name)
     let reason = args[0]
     let color = args[1]
@@ -29,4 +28,8 @@
     {
         message.channel.send("Veuillez spécifier true ou false")
     }
+}
+
+module.exports.help = {
+  name:"rmention"
 }
