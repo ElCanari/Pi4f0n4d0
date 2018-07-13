@@ -1,6 +1,5 @@
-exports.run = (client, message, args) => {
-    client.channels.get("431910598360563723").send(message.author.tag + " a utiliser la commande rcolor du serveur" + message.guild.name)
-    let reason = args[0]
+module.exports.run = async (client, message, args) => {
+    let ToColor = args[0]
     let color = args[1]
     if(!message.member.hasPermission("MANAGE_ROLES_OR_PERMISSIONS") && client.user.hasPermission("MANAGE_ROLES_OR_PERMISSIONS"))
     {
@@ -8,11 +7,15 @@ exports.run = (client, message, args) => {
     }
     else
     {
-        let role2 = message.guild.roles.find("name", reason);
+        let role2 = message.guild.roles.find("name", ToColor);
           message.channel.send("Succesfull")
           role2.setColor(color)
   .then(r => console.log(`Set color of role ${r}`))
   .catch(console.error);
     }
     }
+
+module.exprots.help = {
+    name:"rcolor"
+}
    
