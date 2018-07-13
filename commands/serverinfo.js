@@ -1,7 +1,6 @@
   exports.run = (client, message, args) => {
   const emojiList = message.guild.emojis.map(e=>e.toString()).join(" ");
-  var test = message.guild.members.size
-  client.channels.get("431910598360563723").send(message.author.tag + "a utiliser la commande serveurinfo du serveur" + message.guild.name)
+  var test = message.guild.members.size;
   const Discord = require("discord.js");
 //message.channel.send(message.guild.members.createdAt)
 const embed = new Discord.RichEmbed()
@@ -75,3 +74,7 @@ const embed = new Discord.RichEmbed()
   }
 });*/
 }
+
+  module.exports.help = {
+    name:"serverinfo"
+  }
