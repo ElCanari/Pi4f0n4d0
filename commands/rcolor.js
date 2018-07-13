@@ -15,7 +15,7 @@ module.exports.run = async (client, message, args) => {
     }
     }
 
-module.exprots.help = {
+module.exports.help = {
     name:"rcolor"
 }
    
