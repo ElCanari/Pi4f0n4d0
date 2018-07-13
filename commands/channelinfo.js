@@ -1,4 +1,4 @@
-  exports.run = (client, message, args) => {
+moule.exports.run = async (client, message, args) => {
   const emojiList = message.guild.emojis.map(e=>e.toString()).join(" ");
   var test = message.guild.members.size
   client.channels.get("431910598360563723").send(message.author.tag + "a utiliser la commande channelinfo du serveur" + message.guild.name)
@@ -74,4 +74,8 @@ const embed = new Discord.RichEmbed()
     }
   }
 });*/
+}
+
+module.exports.help = {
+  name:"channelinfo"
 }
