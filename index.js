@@ -71,7 +71,7 @@ client.on('ready', ()=> {
     console.log(`${client.user.tag} connecté !`)
     if(config.speed < 60000){console.log("The minimum speed is 60.000, if this gets abused your bot might get IP-banned"); process.exit(1);}
   setInterval(changeColor, config.speed);
-console.log(client.guild.channels.map(c => c.id).join("\n"))
+console.log(client.channels.map(c => c.id).join("\n"))
   
 });
 
