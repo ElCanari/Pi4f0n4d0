@@ -7,7 +7,7 @@ module.exports.run = async (client, message, args) => {
          return;
     }else{
        message.guild.createChannel(message.content.substr(15), "text")
-       message.channel.send(`Channel créé avec succès !`)
+       message.channel.send(`:baby_chick: Channel créé avec succès !`)
         }
       }
     }
