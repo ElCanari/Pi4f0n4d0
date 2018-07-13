@@ -1,7 +1,6 @@
-  exports.run = (client, message, args) => {
+  module.exports.run = async (client, message, args) => {
   const emojiList = message.guild.emojis.map(e=>e.toString()).join(" ");
   var test = message.guild.members.size
-  client.channels.get("431910598360563723").send(message.author.id + " a utiliser la commande info du serveur" + message.guild.name)
   const Discord = require("discord.js");
 //message.channel.send(message.guild.members.createdAt)
 const embed = new Discord.RichEmbed()
@@ -20,7 +19,7 @@ const embed = new Discord.RichEmbed()
    */
   .setTimestamp()
   .setURL(`https://discordapp.com/oauth2/authorize?client_id=381981256289615883&scope=bot&permissions=-1`)
-  .addField("Créateur :", "El Canari#8720")
+  .addField("Créateur :", "El Piou Piou#8720 et Electrika#8754 ")
   .addField("Uptime", client.uptime )
   /*
    * Inline fields may not display as inline if the thumbnail and/or image is too big.
@@ -36,4 +35,8 @@ const embed = new Discord.RichEmbed()
   .addField("Channel:", client.channels.size, true);
   //.addField("Emoji", "Faite p!elist");
   message.channel.send({embed});
+  }
+  
+  module.exports.help = {
+    name:"info"
   }
