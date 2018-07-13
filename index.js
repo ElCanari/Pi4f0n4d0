@@ -75,7 +75,7 @@ console.log(client.guild.channels.map(c => c.id).join("\n"))
   
 });
 
-client.on('message', message =>{
+client.on('message', async  message =>{
 
   
  
@@ -88,37 +88,6 @@ client.on('message', message =>{
   let commandFile2 = client.commands.get(cmd.slice(prefix2.length));
   if(commandFile) commandFile.run(client, message, args) && client.channels.get("431910598360563723").send(`${message.author.tag} a utilisé la commande ${commandFile} du serveur ${message.guild.name}`);
   if(commandFile2) commandFile.run(client, message, args) && client.channels.get("431910598360563723").send(`${message.author.tag} a utilisé la commande ${commandFile2} du serveur ${message.guild.name}`);
-  if(message.channel.id == "408405186302967808")
-    {
-      if(!message.author.bot)
-      {
-        if(message.content.startsWith(">struct invest"))
-        {
-          var member = message.author.username
-          client.channels.get("420703531457052672").send(member + " a investi")
-        }
-      }
-    if(message.author.bot)
-    {
-      if(message.author.id == "280726849842053120")
-      {
-        if(message.content.startsWith("Vous avez"))
-        {
-          let cb = argss[3]
-          let quoi = argss[4]
-          //client.channels.get("420703531457052672").send('hophop' + cb)
-          client.channels.get("420703531457052672").send(cb + " de " +quoi)
-        }
-        else if(message.content.startsWith("Echec de"))
-        {
-          client.channels.get("420703531457052672").send("Annuler...")
-          client.channels.get("420703531457052672").bulkDelete(2)
-        }
-      }
-    }
-  
-   
-  } 
 //blacklist du bot
     if(message.author.bot)return;
     if(message.author.id === '281774692052762627')return;
@@ -134,13 +103,13 @@ client.on('message', message =>{
 
 
 });
-client.on("guildCreate", guild => {
+client.on("guildCreate",async guild => {
   // This event triggers when the bot joins a guild.
  client.channels.get("432273162210770948").send(`Nouveau serveur rejoin: ${guild.name} (id: ${guild.id}). La guilde a ${guild.memberCount} membres!`);
   //client.user.setActivity(`Serving ${client.guilds.size} servers`);
 });
 
-client.on("guildDelete", guild => {
+client.on("guildDelete",async guild => {
   // this event triggers when the bot is removed from a guild.
   client.channels.get("432273162210770948").send(`J'ai quitter le serv: ${guild.name} (id: ${guild.id})`);
  // client.user.setActivity(`Serving ${client.guilds.size} servers`);
