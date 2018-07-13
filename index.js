@@ -7,7 +7,7 @@ const prefix2 = ">";
 let type = 1;
 const client = new Discord.Client();
 //best handler ever
-fs.readdir("./commandes/", (err, files) => {
+fs.readdir("./commands/", (err, files) => {
   
   if(err) console.log(err);
 
