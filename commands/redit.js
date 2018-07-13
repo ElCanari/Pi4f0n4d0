@@ -1,5 +1,5 @@
-exports.run = (client, message, args) => {
-    client.channels.get("431910598360563723").send(message.author.tag + " a utiliser la commande redit du serveur" + message.guild.name)
+module.exports.run = async (client, message, args) => {
+
     let reason = args[0]
     let color = args[1]
     if(!message.member.hasPermission("MANAGE_ROLES_OR_PERMISSIONS") && client.user.hasPermission("MANAGE_ROLES_OR_PERMISSIONS"))
@@ -14,4 +14,8 @@ exports.run = (client, message, args) => {
   .then(r => console.log(`Set color of role ${r}`))
   .catch(console.error);
     }
+}
+
+module.exports.help = {
+    name:"redit"
 }
