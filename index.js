@@ -6,6 +6,7 @@ const prefix = config.prefix;
 const prefix2 = ">";
 let type = 1;
 const client = new Discord.Client();
+client.commands = new Discord.Collection();
 //best handler ever
 fs.readdir("./commands/", (err, files) => {
   
