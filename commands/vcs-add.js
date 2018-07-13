@@ -3,8 +3,8 @@ module.exports.run = async (client, message, args) => {
     message.channel.send("tu n'as pas la permission de gérer les salons.")
        return;
     }else{
-     message.channel.send("channel #vcs ajouté vous pouvez parler en faisant **3vcs [texte]** sans les [].");
-     message.guild.createChannel("vcs", "text").then(c => c.send({embed:{ 
+     message.channel.send("channel #piaf-vcs ajouté vous pouvez parler en faisant **p7vcs [texte]** sans les [].");
+     message.guild.createChannel("piaf-vcs", "text").then(c => c.send({embed:{ 
         color: Math.floor(Math.random() * 16777214) + 1,
         fields:[{
         name: "règlement",
