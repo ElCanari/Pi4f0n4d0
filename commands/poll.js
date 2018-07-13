@@ -1,5 +1,5 @@
 
-exports.run = (client, message, args) => {
+module.exports.run = async (client, message, args) => {
     const Discord = require("discord.js");
     let create = args[0];
     let channel1 = args[1];
@@ -18,5 +18,8 @@ exports.run = (client, message, args) => {
     
     
     }
+module.exports.help = {
+    name:"poll"
+}
 
 
