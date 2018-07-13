@@ -28,5 +28,5 @@ let hr = Math.floor(600000 * Math.sqrt(temp));
 }
    
 module.exports.help = {
-	name:"remindme" || "rmd"
+	name:"remindme"
 }
