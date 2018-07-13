@@ -6,11 +6,7 @@ module.exports.run = async (client, message) => {
         value:"pour envoyer une message pour tous les channels `vcs`"
         },
         {
-        name: "vcs-image",
-        value:"pour partager une image dans les channels `vcs`"
-        },
-        {
-        name: "vcs-regle",
+        name: "vcs-regles",
         value:"règlement du vcs"
         },
         {
