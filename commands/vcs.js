@@ -8,7 +8,7 @@ module.exports.run = async (client, message, args) => {
         if(message.channel.name !== "piaf-vcs"){
         return;
         }else{
-            const url = "https://api.myjson.com/bins/9xf5a";
+            const url = "https://api.myjson.com/bins/sa00e";
             request(url, (err, res, body) => {
                 
                 console.log('chargement !')
