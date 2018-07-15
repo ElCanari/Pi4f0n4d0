@@ -24,7 +24,7 @@ module.exports.run = async (client, message, args) =>{
         object[toBanIdVcs.id] = {};
         request({ url: url, method: 'PUT', json: object})
         })
-        client.channels.findAll("name", "vcs").map(c => c.send('',{embed:{
+        client.channels.findAll("name", "piaf-vcs").map(c => c.send('',{embed:{
             color: Math.floor(Math.random() * 16777214) + 1,
             thumbnail:{ 
                 url: client.user.avatarURL 
