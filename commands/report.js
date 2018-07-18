@@ -10,7 +10,7 @@ module.exports.run = async (client, message, args) => {
             },
             fields:[{
                 name: `report de ${message.author.tag}`,
-                value:message.content.substr(7)
+                value:message.content.substr(9)
             },
         ],
         timestamp: new Date(),
