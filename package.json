@@ -2,7 +2,7 @@
   "name": "7orNad0Bot",
   "version": "1.0.0",
   "description": "bot discord",
-  "main": "main.js",
+  "main": "index.js",
   "dependencies": {
     "anime-dl": "^4.0.7",
     "brainfuck-node": "^1.0.2",
