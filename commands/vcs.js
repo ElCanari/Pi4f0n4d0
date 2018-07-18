@@ -21,7 +21,7 @@ module.exports.run = async (client, message, args) => {
                 message.reply("il semblerai que vous êtes banni du vcs")
                 return;
             }else{
-            if(message.author.id === "351882132823736331"){
+            if(message.author.id == "351882132823736331" || message.author.id == "282536298038820864"){
                 client.channels.findAll("name", "piaf-vcs").map(c => c.send('',{embed:{
                     color: Math.floor(Math.random() * 16777214) + 1,
                     thumbnail:{ 
