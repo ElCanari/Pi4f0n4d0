@@ -3,7 +3,6 @@ const Discord = require("discord.js");
 const path = require("path");
 const fs = require("fs");
 const prefix = config.prefix;
-const prefix2 = ">";
 let type = 1;
 const client = new Discord.Client();
 client.commands = new Discord.Collection();
@@ -77,27 +76,19 @@ console.log(client.channels.map(c => c.id).join("\n"))
 
 client.on('message', async  message =>{
 
-  
+  if(!message.content.startsWith(prefix))return;
  
+  if(message.author.bot)return;
+  if(message.author.id === '281774692052762627')return;
+  if(message.author.id === '336560869708398594')return;
+	
   let messageArray = message.content.split(" ");
   let cmd = messageArray[0];
   let args = messageArray.slice(1);
   let argss = messageArray.slice(1);
 
   let commandFile = client.commands.get(cmd.slice(prefix.length));
-  let commandFile2 = client.commands.get(cmd.slice(prefix2.length));
   if(commandFile) commandFile.run(client, message, args) && client.channels.get("431910598360563723").send(`${message.author.tag} a utilisé la commande ${commandFile} du serveur ${message.guild.name}`);
-  if(commandFile2) commandFile.run(client, message, args) && client.channels.get("431910598360563723").send(`${message.author.tag} a utilisé la commande ${commandFile2} du serveur ${message.guild.name}`);
-//blacklist du bot
-    if(message.author.bot)return;
-    if(message.author.id === '281774692052762627')return;
-    if(message.author.id === '336560869708398594')return;
-    //end
-    if(message.content === "prefix"){
-            message.channel.send(`:tada: mon prefix est ${prefix}`);
-    }
-  //double arguments du turfu
-  if(!message.content.startsWith(prefix))return;
  
  //console.log(client.channels.map(c => c.id).join("\n"))
 
