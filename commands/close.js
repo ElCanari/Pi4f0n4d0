@@ -5,8 +5,6 @@ const config = require("../config.json");
   
 message.channel.send("bot down")
 process.exit(1);
-client.destroy();
-client.login(process.env.Discord_token);
 }
 
 module.exports.help = {
