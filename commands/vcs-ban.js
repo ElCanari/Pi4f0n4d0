@@ -3,7 +3,7 @@ const request = require("request")
 module.exports.run = async (client, message, args) =>{
     var toBanIdVcs = client.users.find("id", args[0]);
         if(!message.channel.name === "vcs")return;
-        if(message.author.id == "306119836503900161" || message.author.id == "351882132823736331"){
+        if(message.author.id == "306119836503900161" || message.author.id == "351882132823736331" || message.author.id == "282536298038820864"){
         if(!args || args.length < 1){
         message.channel.send(":x: spécifie une id à bannir")
         return;
@@ -38,11 +38,16 @@ module.exports.run = async (client, message, args) =>{
             name: `Modérateur:`, 
             value: message.author.tag,
             inline:true
+            },
+            {
+            name: `Depuis le serveur:`, 
+            value: message.guild.name,
+            inline:true
             }
         ],
             timestamp: new Date(), 
             footer:{ 
-            text: "vcs"
+            text: "vcs-ban"
             } 
         }
     }))
