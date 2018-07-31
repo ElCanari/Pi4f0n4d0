@@ -83,14 +83,11 @@ module.exports.run = async (client, message, args) => {
         
                       console.log('chargé avec succés')
                       let channel = JSON.parse(body);
-                      for(var i in channel){
-                            if(i.endsWith(client.guilds.findAll("id", channel))){
-                            client.channels.get(channel[i].logs).send({embed:{
+                            client.channels.get(channel[message.guild.id].logs).send({embed:{
                             color: Math.floor(Math.random() * 16777214) + 1,
                             title:`Logs: ${new Date()}`,
                             description:`[Trésor de guilde] Trésor récupéré par ${Tr.taker} | [combo: ${userData[Sender.id + message.guild.id].comboTr}]`
                                         }})
-                                    }
                                 }
                             })
                         }
