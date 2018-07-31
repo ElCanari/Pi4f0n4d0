@@ -88,15 +88,14 @@ module.exports.run = async (client, message, args) => {
                             title:`Logs: ${new Date()}`,
                             description:`[Trésor de guilde] Trésor récupéré par ${Tr.taker} | [combo: ${userData[Sender.id + message.guild.id].comboTr}]`
                                         }})
-                                }
-                            })
+                                })
+                            }
                         }
                     }
                 }
-            }     
+            })     
         })
     })
-})
 
 }
 
