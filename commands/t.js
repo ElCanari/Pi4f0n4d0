@@ -49,7 +49,7 @@ module.exports.run = async (client, message, args) => {
                 request({ url: trUrl, method: 'PUT', json: Tr})
                 message.channel.send("Trésor de guild désactivé !")
             }else{
-               if(Blchannel[message.channel.id].boonlean === true){
+               if(Blchannel[message.channel.id].boonlean === true || !Blchannel[message.channel.id]){
                     message.delete();
                     message.channel.send("commande désativé !").then(m => m.delete(5000))
                     return;
@@ -71,10 +71,29 @@ module.exports.run = async (client, message, args) => {
                     Tr[message.guild.id].taker = Sender.tag;
                     Tr[message.guild.id].time = Date.now() + Math.floor(Math.random()+6000000);
                     request({ url: trUrl, method: 'PUT', json: Tr})
-                        }
-                    }
-                }
-            }
+                    //les logs   
+                     const logsUrl = process.env.logs;
+                     request(logsUrl, (err, res, body) => {
+
+                      console.log('chargement !')
+        
+                      if(err || res.statusCode!== 200)return
+        
+                      console.log('chargé avec succés')
+                      let channel = JSON.parse(body);
+                      for(var i in channel){
+                            if(i.endsWith(client.guilds.findAll("id", channel))){
+                            client.channels.get(channel[i].logs).send({embed:{
+                            color: Math.floor(Math.random() * 16777214) + 1,
+                            title:`Logs: ${new Date()}`,
+                            description:`[Trésor] trésor récupéré par ${Tr.taker} | ${50 * userData[Sender.id].combotr} <a:coins:467999444567195651> ${25 * userData[Sender.id].combotr} <:XP:470615654639337472> [combo: ${userData[Sender.id].combotr}]`
+                       }})
+      }
+  }
+                          }
+                      }
+                  }
+             }
         })
     })
 })
