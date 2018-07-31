@@ -41,7 +41,7 @@ module.exports.run = async (client, message, args) => {
                 request({ url: trUrl, method: 'PUT', json: Tr})
                 message.channel.send("Trésor de guild désactivé !")
             }else{
-                if(!Tr.guild != message.guild.id)return;
+                if(!Tr.guild === message.guild.id)return;
                 if(!userData[Sender.id + message.guild.id])return;
                 if(Tr.boonlean = false)return;
                 var now = new Date().getTime();
