@@ -61,13 +61,16 @@ module.exports.run = async (client, message, args) => {
            if(args[0] === "ubl"){
                if(!message.member.hasPermission("ADMINISTRATOR")){
                 message.channel.send(":x: Tu n'as pas les permissions nécéssaires.")
+                return;
                 }else{
                Blchannel[message.channel.id].boonlean = false;
                request({ url: cblUrl, method: 'PUT', json: Blchannel})
                message.channel.send("les commandes de trésor ne sont plus blacklist ici")
+                return;
+                }
                 if(!Tr[message.guild.id])return;
                 if(!userData[Sender.id + message.guild.id])return;
-                if(Tr[message.guild.id].boonlean === false)return;
+                if(Tr[message.guild.id].boonlean == false)return;
                 var now = new Date().getTime();
                 var distance = Tr[message.guild.id].time - now;
                 var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
@@ -75,6 +78,7 @@ module.exports.run = async (client, message, args) => {
                 if(Blchannel[message.channel.id].boonlean === true){
                     message.delete();
                     message.channel.send("commande désativé !").then(m => m.delete(5000))
+                    return;
                 }else{
                 if((Tr[message.guild.id].time > Date.now()) && (Tr[message.guild.id].time !== 0)){
                     message.channel.send("<a:tresure:467999359724945408> - " + `Le trésor de la guilde n'est pas encore récupérable, il sera récupérable dans ${minutes} minutes et ${seconds} secondes. Actuellement votre combo est de : x${userData[Sender.id + message.guild.id].comboTr}, le dernier trésor a été récupéré par : ${Tr[message.guild.id].taker}`)
@@ -91,7 +95,6 @@ module.exports.run = async (client, message, args) => {
                     }
                 }
             }
-        }
     
 }
     })
