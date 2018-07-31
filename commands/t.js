@@ -51,7 +51,7 @@ module.exports.run = async (client, message, args) => {
                 request({ url: trUrl, method: 'PUT', json: Tr})
                 message.channel.send("Trésor de guild désactivé !")
             }else{
-               if(Blchannel[message.channel.id].boonlean === true || Blchannel[message.channel.id]){
+               if(Blchannel[message.channel.id].boonlean === true){
                     message.delete();
                     message.channel.send("commande désativé !").then(m => m.delete(5000))
                     return;
