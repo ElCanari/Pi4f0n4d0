@@ -48,28 +48,7 @@ module.exports.run = async (client, message, args) => {
                 Tr[message.guild.id].boonlean = false;
                 request({ url: trUrl, method: 'PUT', json: Tr})
                 message.channel.send("Trésor de guild désactivé !")
-                   if(args[0] === "bl"){
-                if(!message.member.hasPermission("ADMINISTRATOR")){
-                message.channel.send(":x: Tu n'as pas les permissions nécéssaires.")
-                }else{
-                if(!Blchannel[message.channel.id]) Blchannel[message.channel.id] = {};
-                if(!Blchannel[message.channel.id].boonlean) Blchannel[message.channel.id].boonlean = true;
-                message.channel.send("commande trésor blacklist dans ce channel")
-                request({ url: cblUrl, method: 'PUT', json: Blchannel})
-                }
-        }else{
-           if(args[0] === "ubl"){
-               if(!message.member.hasPermission("ADMINISTRATOR")){
-                message.channel.send(":x: Tu n'as pas les permissions nécéssaires.")
-                return;
-                }else{
-               Blchannel[message.channel.id].boonlean = false;
-               request({ url: cblUrl, method: 'PUT', json: Blchannel})
-               message.channel.send("les commandes de trésor ne sont plus blacklist ici")
-                return;
-            
-            }
-        }
+            }else{
                if(Blchannel[message.channel.id].boonlean === true){
                     message.delete();
                     message.channel.send("commande désativé !").then(m => m.delete(5000))
@@ -92,15 +71,13 @@ module.exports.run = async (client, message, args) => {
                     Tr[message.guild.id].taker = Sender.tag;
                     Tr[message.guild.id].time = Date.now() + Math.floor(Math.random()+6000000);
                     request({ url: trUrl, method: 'PUT', json: Tr})
-                            }
                         }
                     }
                 }
-    
-}
+            }
+        })
     })
-    })
-    })
+})
 
 }
 
