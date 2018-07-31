@@ -12,16 +12,16 @@ if(err || res.statusCode!== 200)return
 console.log('chargé avec succés')
     let channel = JSON.parse(body);
 if(message.member.hasPermission("ADMINISTRATOR")){
-    if(channel[message.guild.id].boonlean === true){
-    channel[message.guild.id].boonlean = false;
-    request({ url: logsurl, method: 'PUT', json: channel});
-    message.channel.send("logs désactivé !")
-    }else{
+    if(!channel[message.guild.id]){
     if(!channel[message.guild.id]) channel[message.guild.id] = {};
     if(!channel[message.guild.id].boonlean) channel.boonlean = true;
     if(!channel[message.guild.id].logs) channel[message.guild.id].logs = message.channel.id;
     request({ url: logsurl, method: 'PUT', json: channel});
-    message.channel.send(`logs dans le channel [${message.channel.id}] ajouté.`)
+    message.channel.send(`logs dans le channel [${message.channel.id}] ajouté.`);
+    }else{
+     channel[message.guild.id].boonlean = false;
+    request({ url: logsurl, method: 'PUT', json: channel});
+    message.channel.send("logs désactivé !")
     }
 }else{
     message.channel.send(":x: Tu n'as pas les permissions suffisantes.")
