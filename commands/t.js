@@ -26,9 +26,13 @@ module.exports.run = async (client, message, args) => {
             if(args[0] === "on"){
             if(!Tr) Tr = {};
             if(!Tr.guild) Tr.guild = message.guild.id;
-            if(!Tr.boonlean || Tr.boonlean == false) Tr.boonlean == true;
+            if(!Tr.boonlean) Tr.boonlean == true;
             if(!Tr.time) Tr.time = Date.now() + 300000;
             if(!Tr.taker) Tr.taker = "undefined";
+            if(Tr.boonlean == false){
+             Tr.boonlean = true;
+             request({ url: trUrl, method: 'PUT', json: Tr})
+            }
             request({ url: trUrl, method: 'PUT', json: Tr})
             message.channel.send("Trésor de guilde activé !")
             }else{
