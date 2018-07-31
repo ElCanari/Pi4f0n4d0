@@ -22,7 +22,7 @@ module.exports.run = async (client, message, args) => {
         }else{
         userData[mention.id + message.guild.id].comboTr = args[1];
         request({ url: url, method: 'PUT', json: userData})
-        message.channel.send("Le combo de " + mention.tag + " passe à " userData[mention.id + message.guild.id].comboTr + " !")
+        message.channel.send("Le combo de " + mention.tag + " passe à " + userData[mention.id + message.guild.id].comboTr + " !")
         }
     }
 })
