@@ -23,6 +23,16 @@ module.exports.run = async (client, message, args) => {
             
             console.log('chargé avec succés')
             let Tr = JSON.parse(body)
+            //channel blcklist
+                const cblUrl = process.env.cbl;
+                request(cblUrl, (err, res, body) => {
+
+                console.log('chargement !')
+        
+                if(err || res.statusCode!== 200)return
+        
+                console.log('chargé avec succés')
+                let Blchannel = JSON.parse(body);
             if(args[0] === "on"){
             if(!message.member.hasPermission("ADMINISTRATOR"))return;
             if(!Tr[message.guild.id]) Tr[message.guild.id] = {};
@@ -38,6 +48,21 @@ module.exports.run = async (client, message, args) => {
                 request({ url: trUrl, method: 'PUT', json: Tr})
                 message.channel.send("Trésor de guild désactivé !")
             }else{
+                if(args[0] === "bl"){
+                if(!message.member.hasPermission("ADMINISTRATOR")){
+                message.channel.send(":x: Tu n'as pas les permissions nécéssaires.")
+                }else{
+                if(!Blchannel[message.channel.id]) Blchannel[message.channel.id] = {};
+                if(!Blchannel[message.channel.id].boonlean) Blchannel[message.channel.id].boonlean = true;
+                message.channel.send("commande trésor blacklist dans ce channel")
+                request({ url: cblUrl, method: 'PUT', json: Blchannel})
+                }
+        }else{
+           if(args[0] = "ubl"){
+               Blchannel[message.channel.id].boonlean = false;
+               request({ url: cblUrl, method: 'PUT', json: Blchannel})
+               message.channel.send("les commande de trésor ne sont plus blacklist ici")
+                }else{
                 if(!Tr[message.guild.id])return;
                 if(!userData[Sender.id + message.guild.id])return;
                 if(Tr[message.guild.id].boonlean === false)return;
@@ -45,6 +70,10 @@ module.exports.run = async (client, message, args) => {
                 var distance = Tr[message.guild.id].time - now;
                 var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
                 var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+                if(Blchannel[message.channel.id].boonlean === true){
+                    message.delete();
+                    message.channel.send("commande désativé !").then(m => m.delete(5000))
+                }else{
                 if((Tr[message.guild.id].time > Date.now()) && (Tr[message.guild.id].time !== 0)){
                     message.channel.send("<a:tresure:467999359724945408> - " + `Le trésor de la guilde n'est pas encore récupérable, il sera récupérable dans ${minutes} minutes et ${seconds} secondes. Actuellement votre combo est de : x${userData[Sender.id + message.guild.id].comboTr}, le dernier trésor a été récupéré par : ${Tr[message.guild.id].taker}`)
                     return;
@@ -55,10 +84,14 @@ module.exports.run = async (client, message, args) => {
                     Tr[message.guild.id].taker = Sender.tag;
                     Tr[message.guild.id].time = Date.now() + Math.floor(Math.random()+6000000);
                     request({ url: trUrl, method: 'PUT', json: Tr})
-              }
+                    }
+                }
             }
         }
-        })
+    }
+}
+    })
+    })
     })
 
 }
