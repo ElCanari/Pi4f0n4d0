@@ -24,6 +24,7 @@ module.exports.run = async (client, message, args) => {
             console.log('chargé avec succés')
             let Tr = JSON.parse(body)
             if(args[0] === "on"){
+            if(!message.member.hasPermission("ADMINISTRATOR"))return;
             if(!Tr[message.guild.id]) Tr[message.guild.id] = {};
             if(!Tr[message.guild.id].boonlean) Tr[message.guild.id].boonlean = true;
             if(!Tr[message.guild.id].time) Tr[message.guild.id].time = Date.now() + 300000;
@@ -32,6 +33,7 @@ module.exports.run = async (client, message, args) => {
             message.channel.send("Trésor de guilde activé !")
             }else{
             if(args[0] === "off"){
+             if(!message.member.hasPermission("ADMINISTRATOR"))return;
                 Tr[message.guild.id].boonlean = false;
                 request({ url: trUrl, method: 'PUT', json: Tr})
                 message.channel.send("Trésor de guild désactivé !")
