@@ -5,7 +5,7 @@ module.exports.run = async (client, message, args) => {
       message.channel.send(":x: écris quelque chose d'important à annoncer")
       return;
       }
-        message.guild.members.filter(m => m.roles.find("name", args.join(" "))).map(u => u.send(message.content.substr(message.guild.roles.find("name", args.join(" ")).name.length + 1)))
+        message.guild.members.filter(m => m.roles.find("name", args)).map(u => u.send(message.content.substr(args.length + 1)))
         message.channel.send(":baby_chick: annonce envoyée !")
       }
       }else{
