@@ -24,38 +24,37 @@ module.exports.run = async (client, message, args) => {
             console.log('chargé avec succés')
             let Tr = JSON.parse(body)
             if(args[0] === "on"){
-            if(!Tr) Tr = {};
-            if(!Tr.guild) Tr.guild = message.guild.id;
-            if(!Tr.boonlean) Tr.boonlean == true;
-            if(!Tr.time) Tr.time = Date.now() + 300000;
-            if(!Tr.taker) Tr.taker = "undefined";
-            if(Tr.boonlean == false){
-             Tr.boonlean = true;
+            if(!Tr[message.guild.id]) Tr[message.guild.id] = {};
+            if(!Tr[message.guild.id].boonlean) Tr[message.guild.id].boonlean == true;
+            if(!Tr[message.guild.id].time) Tr[message.guild.id].time = Date.now() + 300000;
+            if(!Tr[message.guild.id].taker) Tr[message.guild.id].taker = "undefined";
+            if(Tr[message.guild.id].boonlean == false){
+             Tr[message.guild.id].boonlean = true;
              request({ url: trUrl, method: 'PUT', json: Tr})
             }
             request({ url: trUrl, method: 'PUT', json: Tr})
             message.channel.send("Trésor de guilde activé !")
             }else{
             if(args[0] === "off"){
-                Tr.boonlean == false;
+                Tr[message.guild.id].boonlean == false;
                 request({ url: trUrl, method: 'PUT', json: Tr})
                 message.channel.send("Trésor de guild désactivé !")
             }else{
-                if(!Tr.guild === message.guild.id)return;
+                if(Tr[message.guild.id] !== message.guild.id)return;
                 if(!userData[Sender.id + message.guild.id])return;
-                if(Tr.boonlean = false)return;
+                if(Tr[message.guild.id].boonlean = false)return;
                 var now = new Date().getTime();
-                var distance = Tr.time - now;
+                var distance = Tr[message.guild.id].time - now;
                 var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
                 var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-                if((Tr.time > Date.now()) && (Tr.time !== 0)){
-                    message.channel.send("<a:tresure:467999359724945408> - " + `Le trésor de la guilde n'est pas encore récupérable, il sera récupérable dans ${minutes} minutes et ${seconds} secondes. Actuellement votre combo est de : x${userData[Sender.id + message.guild.id].comboTr}, le dernier trésor a été récupéré par : ${Tr.taker}`)
+                if((Tr[message.guild.id].time > Date.now()) && (Tr[message.guild.id].time !== 0)){
+                    message.channel.send("<a:tresure:467999359724945408> - " + `Le trésor de la guilde n'est pas encore récupérable, il sera récupérable dans ${minutes} minutes et ${seconds} secondes. Actuellement votre combo est de : x${userData[Sender.id + message.guild.id].comboTr}, le dernier trésor a été récupéré par : ${Tr[message.guild.id].taker}`)
                     return;
                 }else{
                     userData[Sender.id + message.guild.id].comboTr++;
                     request({ url: url, method: 'PUT', json: userData})
                     message.reply("Tu eu le trésor de guilde ton combo actuel monte à " + userData[Sender.id + message.guild.id].comboTr + " !");
-                    Tr.time = Date.now() + Math.floor(Math.random()+6000000);
+                    Tr[message.guild.id].time = Date.now() + Math.floor(Math.random()+6000000);
                     request({ url: trUrl, method: 'PUT', json: Tr})
               }
             }
