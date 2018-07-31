@@ -59,6 +59,9 @@ module.exports.run = async (client, message, args) => {
                 }
         }else{
            if(args[0] = "ubl"){
+               if(!message.member.hasPermission("ADMINISTRATOR")){
+                message.channel.send(":x: Tu n'as pas les permissions nécéssaires.")
+                }else{
                Blchannel[message.channel.id].boonlean = false;
                request({ url: cblUrl, method: 'PUT', json: Blchannel})
                message.channel.send("les commande de trésor ne sont plus blacklist ici")
@@ -84,6 +87,7 @@ module.exports.run = async (client, message, args) => {
                     Tr[message.guild.id].taker = Sender.tag;
                     Tr[message.guild.id].time = Date.now() + Math.floor(Math.random()+6000000);
                     request({ url: trUrl, method: 'PUT', json: Tr})
+                        }
                     }
                 }
             }
