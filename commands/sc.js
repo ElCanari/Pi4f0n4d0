@@ -13,12 +13,15 @@ module.exports.run = async (client, message, args) => {
         var mention = message.mentions.users.first();
         if(!message.author.id === process.env.AdminId) return message.channel.send(":x: Tu n'est pas mon développeur")
         if(!args[1]){
-        message.channel.send("entre un nombre")
+        message.channel.send("entre un utilisateur")
+            return;
         }else{
         if(!mention){
-        message.channel.send
+        message.channel.send(":x: mentionne un utilisateur")
+            return;
         }else{
         userData[mention.id + message.guild.id].comboTr = args[0];
+        request({ url: url, method: 'PUT', json: userData})
         }
     }
 })
