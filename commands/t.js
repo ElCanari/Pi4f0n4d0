@@ -31,15 +31,16 @@ module.exports.run = async (client, message, args) => {
             if(!Tr.taker) Tr.taker = "undefined";
             request({ url: trUrl, method: 'PUT', json: Tr})
             message.channel.send("Trésor de guilde activé !")
-            }
+            }else{
             if(args[0] === "off"){
                 Tr.boonlean == false;
                 request({ url: trUrl, method: 'PUT', json: Tr})
                 message.channel.send("Trésor de guild désactivé !")
-            }
-                if(Tr.boonlean = false)return;
-                if(!Tr.guild === message.guild.id)return;
+            }else{
+                if(!Tr.guild != message.guild.id)return;
                 if(!userData[Sender.id + message.guild.id])return;
+                if(Tr.boonlean = false)return;
+                if(!Tr)return;
                 var now = new Date().getTime();
                 var distance = Tr.time - now;
                 var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
@@ -54,6 +55,8 @@ module.exports.run = async (client, message, args) => {
                     Tr.time = Date.now() + Math.floor(Math.random()+6000000);
                     request({ url: trUrl, method: 'PUT', json: Tr})
               }
+            }
+        }
         })
     })
 
