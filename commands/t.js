@@ -31,14 +31,14 @@ module.exports.run = async (client, message, args) => {
             if(!Tr.taker) Tr.taker = "undefined";
             request({ url: trUrl, method: 'PUT', json: Tr})
             message.channel.send("Trésor de guilde activé !")
-            }else{
+            }
             if(args[0] === "off"){
                 Tr.boonlean == false;
                 request({ url: trUrl, method: 'PUT', json: Tr})
                 message.channel.send("Trésor de guild désactivé !")
-            }else{
+            }
                 if(Tr.boonlean = false)return;
-                if(!Tr.guild)return;
+                if(!Tr.guild === message.guild.id)return;
                 if(!userData[Sender.id + message.guild.id])return;
                 var now = new Date().getTime();
                 var distance = Tr.time - now;
