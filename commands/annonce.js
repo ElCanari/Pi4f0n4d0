@@ -1,7 +1,7 @@
 module.exports.run = async (client, message, args) => {
     if(message.guild.id === process.env.rgk){
       if(message.member.hasPermission("MANAGE_MESSAGES")){
-      if(!args){
+      if(!args[0]){
       message.channel.send(":x: écris quelque chose d'important à annoncer")
       return;
       }
