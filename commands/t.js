@@ -40,7 +40,6 @@ module.exports.run = async (client, message, args) => {
                 if(!Tr.guild != message.guild.id)return;
                 if(!userData[Sender.id + message.guild.id])return;
                 if(Tr.boonlean = false)return;
-                if(!Tr)return;
                 var now = new Date().getTime();
                 var distance = Tr.time - now;
                 var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
