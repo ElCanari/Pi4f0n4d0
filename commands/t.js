@@ -58,7 +58,7 @@ module.exports.run = async (client, message, args) => {
                 request({ url: cblUrl, method: 'PUT', json: Blchannel})
                 }
         }else{
-           if(args[0] = "ubl"){
+           if(args[0] === "ubl"){
                if(!message.member.hasPermission("ADMINISTRATOR")){
                 message.channel.send(":x: Tu n'as pas les permissions nécéssaires.")
                 }else{
