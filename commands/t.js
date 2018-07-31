@@ -87,13 +87,14 @@ module.exports.run = async (client, message, args) => {
                             color: Math.floor(Math.random() * 16777214) + 1,
                             title:`Logs: ${new Date()}`,
                             description:`[Trésor de guilde] Trésor récupéré par ${Tr.taker} | [combo: ${userData[Sender.id].combotr}]`
-                                      }})
-                                  }
-                              }
-                          }
-                      }
-                  }
-             }
+                                        }})
+                                    }
+                                }
+                            })
+                        }
+                    }
+                }
+            }     
         })
     })
 })
