@@ -32,7 +32,7 @@ module.exports.run = async (client, message, args) => {
             message.channel.send("Trésor de guilde activé !")
             }else{
             if(args[0] === "off"){
-                Tr[message.guild.id].boonlean == false;
+                Tr[message.guild.id].boonlean = false;
                 request({ url: trUrl, method: 'PUT', json: Tr})
                 message.channel.send("Trésor de guild désactivé !")
             }else{
