@@ -35,6 +35,7 @@ module.exports.run = async (client, message, args) => {
                 let Blchannel = JSON.parse(body);
                 if(!Blchannel[message.channel.id]) Blchannel[message.channel.id] = {};
                 if(!Blchannel[message.channel.id].boonlean) Blchannel[message.channel.id].boonlean = false;
+                request({ url: cblUrl, method: 'PUT', json: Blchannel})
             if(args[0] === "on"){
             if(!message.member.hasPermission("ADMINISTRATOR"))return;
             if(!Tr[message.guild.id]) Tr[message.guild.id] = {};
