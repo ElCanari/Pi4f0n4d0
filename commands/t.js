@@ -64,8 +64,7 @@ module.exports.run = async (client, message, args) => {
                 }else{
                Blchannel[message.channel.id].boonlean = false;
                request({ url: cblUrl, method: 'PUT', json: Blchannel})
-               message.channel.send("les commande de trésor ne sont plus blacklist ici")
-                }else{
+               message.channel.send("les commandes de trésor ne sont plus blacklist ici")
                 if(!Tr[message.guild.id])return;
                 if(!userData[Sender.id + message.guild.id])return;
                 if(Tr[message.guild.id].boonlean === false)return;
@@ -87,12 +86,13 @@ module.exports.run = async (client, message, args) => {
                     Tr[message.guild.id].taker = Sender.tag;
                     Tr[message.guild.id].time = Date.now() + Math.floor(Math.random()+6000000);
                     request({ url: trUrl, method: 'PUT', json: Tr})
+                            }
                         }
                     }
                 }
             }
         }
-    }
+    
 }
     })
     })
