@@ -86,10 +86,10 @@ module.exports.run = async (client, message, args) => {
                             client.channels.get(channel[i].logs).send({embed:{
                             color: Math.floor(Math.random() * 16777214) + 1,
                             title:`Logs: ${new Date()}`,
-                            description:`[Trésor de guilde] Trésor récupéré par ${Tr.taker} | [combo: ${userData[Sender.id].combotr}]
-                       }})
-      }
-  }
+                            description:`[Trésor de guilde] Trésor récupéré par ${Tr.taker} | [combo: ${userData[Sender.id].combotr}]`
+                                      }})
+                                  }
+                              }
                           }
                       }
                   }
