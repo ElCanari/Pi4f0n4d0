@@ -11,14 +11,14 @@ module.exports.run = async (client, message, args) => {
         console.log('chargé avec succés')
         let userData = JSON.parse(body);
         var mention = message.mentions.users.first();
-        if(!message.author.id === process.env.adminId) return message.channel.send(":x: Tu n'est pas mon développeur")
+        if(!message.author.id === process.env.AdminId) return message.channel.send(":x: Tu n'est pas mon développeur")
         if(!args[1]){
         message.channel.send("entre un nombre")
         }else{
         if(!mention){
         message.channel.send
         }else{
-        userData[mention.id +message.guild.id].comboTr = args[0];
+        userData[mention.id + message.guild.id].comboTr = args[0];
         }
     }
 })
