@@ -70,7 +70,9 @@ module.exports.run = async (client, message, args) => {
                     userData[Sender.id + message.guild.id].comboTr++;
                     request({ url: url, method: 'PUT', json: userData})
                     message.reply("Tu eu le trésor de guilde ton combo actuel monte à " + userData[Sender.id + message.guild.id].comboTr + " !");
+                    request({ url: url, method: 'PUT', json: userData})
                     Tr[message.guild.id].taker = Sender.tag;
+                    request({ url: trUrl, method: 'PUT', json: Tr})
                     Tr[message.guild.id].time = Date.now() + Math.floor(Math.random()+4500000);
                     request({ url: trUrl, method: 'PUT', json: Tr})
                     //les logs   
