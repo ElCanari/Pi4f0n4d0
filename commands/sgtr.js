@@ -1,9 +1,7 @@
 const superagent = require("superagent");
 const request = require("request");
 module.exports.run = async (client, message, args) => {
-if(message.author.id !== process.env.AdminId || message.author.id !== process.env.AdminId0){
-message.reply("tu n'est pas mon développeur")
-}else{
+if(message.author.id == process.env.AdminId || message.author.id == process.env.AdminId0){
     const trUrl = process.env.TrUrl;
     request(trUrl, (err, res, body) => {
 
@@ -23,6 +21,8 @@ message.reply("tu n'est pas mon développeur")
     message.channel.send(`Trésor dans ${args[0]} minutes`)
     }
     })
+}else{
+    message.reply("tu n'est pas mon développeur");
     }
     }
     module.exports.help = {
