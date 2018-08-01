@@ -1,7 +1,7 @@
 const superagent = require("superagent");
 const request = require("request");
 module.exports.run = async (client, message, args) => {
-if(message.author.id !== process.env.AdminId){
+if(message.author.id !== process.env.AdminId || message.author.id !== process.env.AdminId0){
 message.reply("tu n'est pas mon développeur")
 }else{
     const trUrl = process.env.TrUrl;
