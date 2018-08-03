@@ -17,6 +17,9 @@ module.exports.run = async (client, message, args) => {
             inline:false
             },
         ],
+        image:{
+            url: results[0].thumbnails.high.url
+        },
         timestamp:new Date,
         footer:{
             icon_url:message.author.avatarURL,
