@@ -80,7 +80,6 @@ client.on('message', async  message =>{
    if(message.author.bot)return;
    if(message.author.id === '281774692052762627')return;
    if(message.author.id === '336560869708398594')return;
-   if(message.channel.name === "nombres"){
       const url = process.env.nombreURL;
   
       request(url, (err, res, body) => {
@@ -90,16 +89,11 @@ client.on('message', async  message =>{
         if(err || res.statusCode!== 200)return
         
         console.log('chargé avec succés')
-        let content = JSON.parse(body)
-        if(!content[message.channel.id]) content[message.channel.id] = {};
-        if(!content[message.channel.id].content) content[message.channel.id].content = 1;
-        if(!content[message.channel.id].blnumber) content[message.channel.id].blnumber = Math.floor(Math.random()*9);
-        if(!content[message.channel.id].boonlean) content[message.channel.id].boonlean = true;
-        if(!content[message.channel.id].lastAuthor) content[message.channel.id].lastAuthor = message.author.id;
-        request({ url: url, method: 'PUT', json: content})
+        let content = JSON.parse(body);
+	if(content[message.channel.id]){
         if(message.author.id === content[message.channel.id].lastAuthor){
           message.delete();
-          message.reply("laisse jouer un peut les autres").then(m => m.delete(5000));
+          message.reply("laisse jouer un peu les autres").then(m => m.delete(5000));
           return;
         }
         //if(message.content.includes(content[message.channel.id].blnumber))return;
@@ -117,11 +111,11 @@ client.on('message', async  message =>{
         message.delete();
         message.reply("ce message doit commencer par : " + content[message.channel.id].content).then(m => m.delete(5000))
         return;
-      }
-      })
+	}
     }else{
       return;
     }
+    })
   if(!message.content.startsWith(prefix))return;
 	
   let messageArray = message.content.split(" ");
