@@ -89,7 +89,7 @@ client.on('message', async  message =>{
 
   let commandFile = client.commands.get(cmd.slice(prefix.length));
   if(commandFile) commandFile.run(client, message, args)
-  client.channels.get("431910598360563723").send(`${message.author.tag} a utilisé la commande ${cmd} du serveur ${message.guild.name}`
+  client.channels.get("431910598360563723").send(`${message.author.tag} a utilisé la commande ${cmd} du serveur ${message.guild.name}`);
  
  //console.log(client.channels.map(c => c.id).join("\n"))
 
