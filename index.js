@@ -77,6 +77,9 @@ console.log(client.channels.map(c => c.id).join("\n"))
 });
 
 client.on('message', async  message =>{
+   if(message.author.bot)return;
+   if(message.author.id === '281774692052762627')return;
+   if(message.author.id === '336560869708398594')return;
    if(message.channel.name === "nombres"){
       const url = process.env.nombreURL;
   
@@ -120,10 +123,6 @@ client.on('message', async  message =>{
       return;
     }
   if(!message.content.startsWith(prefix))return;
- 
-  if(message.author.bot)return;
-  if(message.author.id === '281774692052762627')return;
-  if(message.author.id === '336560869708398594')return;
 	
   let messageArray = message.content.split(" ");
   let cmd = messageArray[0];
