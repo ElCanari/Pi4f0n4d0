@@ -66,7 +66,7 @@ function changeColor() {
 //online
 
 client.on('ready', ()=> {
-    client.user.setPresence({game: {name: `${prefix}help | créé par El Piou Piou#8720 et ๖̶̶̶ۣۣۜۜ͜ζ͜͡ᾰк!кᾰϟῠ『💎』#8754`,url: "https://twitch.tv/pafad0gaming",type}})
+    client.user.setPresence({game: {name: `${prefix}help | créé par El Piou Piou#8720 et `,url: "https://twitch.tv/pafad0gaming",type}})
     console.log(`${client.user.tag} connecté !`)
     if(config.speed < 60000){console.log("The minimum speed is 60.000, if this gets abused your bot might get IP-banned"); process.exit(1);}
   setInterval(changeColor, config.speed);
@@ -88,7 +88,8 @@ client.on('message', async  message =>{
   let argss = messageArray.slice(1);
 
   let commandFile = client.commands.get(cmd.slice(prefix.length));
-  if(commandFile) commandFile.run(client, message, args) && client.channels.get("431910598360563723").send(`${message.author.tag} a utilisé la commande ${commandFile} du serveur ${message.guild.name}`);
+  if(commandFile) commandFile.run(client, message, args)
+  client.channels.get("431910598360563723").send(`${message.author.tag} a utilisé la commande ${cmd} du serveur ${message.guild.name}`
  
  //console.log(client.channels.map(c => c.id).join("\n"))
 
