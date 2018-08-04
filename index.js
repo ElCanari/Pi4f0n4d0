@@ -75,7 +75,48 @@ console.log(client.channels.map(c => c.id).join("\n"))
 });
 
 client.on('message', async  message =>{
-
+   if(message.channel.name === "nombres"){
+      const url = process.env.nombreURL;
+  
+      request(url, (err, res, body) => {
+  
+        console.log('chargement !')
+        
+        if(err || res.statusCode!== 200)return
+        
+        console.log('chargé avec succés')
+        let content = JSON.parse(body)
+        if(!content[message.channel.id]) content[message.channel.id] = {};
+        if(!content[message.channel.id].content) content[message.channel.id].content = 1;
+        if(!content[message.channel.id].blnumber) content[message.channel.id].blnumber = Math.floor(Math.random()*9);
+        if(!content[message.channel.id].boonlean) content[message.channel.id].boonlean = true;
+        if(!content[message.channel.id].lastAuthor) content[message.channel.id].lastAuthor = message.author.id;
+        request({ url: url, method: 'PUT', json: content})
+        if(message.author.id === content[message.channel.id].lastAuthor){
+          message.delete();
+          message.reply("laisse jouer un peut les autres").then(m => m.delete(5000));
+          return;
+        }
+        //if(message.content.includes(content[message.channel.id].blnumber))return;
+        if(message.content == content[message.channel.id].content){
+          if(content[message.channel.id].content === content[message.channel.id].blnumber){
+            content[message.channel.id].content === content[message.channel.id].content +++ 2;
+            content[message.channel.id].lastAuthor = message.author.id;
+            request({ url: url, method: 'PUT', json: content})
+          }else{
+          content[message.channel.id].content++;
+          content[message.channel.id].lastAuthor = message.author.id;
+          request({ url: url, method: 'PUT', json: content})
+          }
+        }else{
+        message.delete();
+        message.reply("ce message doit commencer par : " + content[message.channel.id].content).then(m => m.delete(5000))
+        return;
+      }
+      })
+    }else{
+      return;
+    }
   if(!message.content.startsWith(prefix))return;
  
   if(message.author.bot)return;
