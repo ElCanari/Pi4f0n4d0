@@ -23,6 +23,23 @@ module.exports.run = async (client, message, args) => {
             
             console.log('chargé avec succés')
             let Tr = JSON.parse(body)
+             if(args[0] === "on"){
+            if(!message.member.hasPermission("ADMINISTRATOR"))return;
+            if(!Tr[message.guild.id]) Tr[message.guild.id] = {};
+            if(!Tr[message.guild.id].boonlean) Tr[message.guild.id].boonlean = true;
+            if(!Tr[message.guild.id].time) Tr[message.guild.id].time = Date.now() + 300000;
+            if(!Tr[message.guild.id].taker) Tr[message.guild.id].taker = "undefined";
+            request({ url: trUrl, method: 'PUT', json: Tr})
+            message.channel.send("Trésor de guilde activé !")
+            return;
+            }
+            if(args[0] === "off"){
+             if(!message.member.hasPermission("ADMINISTRATOR"))return;
+                Tr[message.guild.id].boonlean = false;
+                request({ url: trUrl, method: 'PUT', json: Tr})
+                message.channel.send("Trésor de guild désactivé !")
+                return;
+            }
             //channel blcklist
                 const cblUrl = process.env.cbl;
                 request(cblUrl, (err, res, body) => {
