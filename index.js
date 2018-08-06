@@ -68,7 +68,7 @@ function changeColor() {
 //online
 
 client.on('ready', ()=> {
-    client.user.setPresence({game: {name: `${prefix}help | créé par El Piou Piou#8720 et `,url: "https://twitch.tv/pafad0gaming",type}})
+    client.user.setPresence({game: {name: `${prefix}help | créé par El Piou Piou#8720 et ⚡Electrika⚡#6666`,url: "https://twitch.tv/pafad0gaming",type}})
     console.log(`${client.user.tag} connecté !`)
     if(config.speed < 60000){console.log("The minimum speed is 60.000, if this gets abused your bot might get IP-banned"); process.exit(1);}
   setInterval(changeColor, config.speed);
@@ -134,12 +134,12 @@ client.on('message', async  message =>{
 client.on("guildCreate",async guild => {
   // This event triggers when the bot joins a guild.
  client.channels.get("432273162210770948").send(`Nouveau serveur rejoin: ${guild.name} (id: ${guild.id}). La guilde a ${guild.memberCount} membres!`);
-  //client.user.setActivity(`Serving ${client.guilds.size} servers`);
+   client.user.setPresence({game: {name: `${prefix}help | créé par El Piou Piou#8720 et ⚡Electrika⚡#6666`,url: "https://twitch.tv/pafad0gaming",type}})
 });
 
 client.on("guildDelete",async guild => {
   // this event triggers when the bot is removed from a guild.
   client.channels.get("432273162210770948").send(`J'ai quitter le serv: ${guild.name} (id: ${guild.id})`);
- // client.user.setActivity(`Serving ${client.guilds.size} servers`);
+  client.user.setPresence({game: {name: `${prefix}help | créé par El Piou Piou#8720 et ⚡Electrika⚡#6666`,url: "https://twitch.tv/pafad0gaming",type}})
 });
 client.login(process.env.Discord_token || process.argv[2]);
