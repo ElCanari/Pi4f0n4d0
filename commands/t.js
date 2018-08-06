@@ -44,13 +44,15 @@ module.exports.run = async (client, message, args) => {
             if(!Tr[message.guild.id].taker) Tr[message.guild.id].taker = "undefined";
             request({ url: trUrl, method: 'PUT', json: Tr})
             message.channel.send("Trésor de guilde activé !")
-            }else{
+            return;
+            }
             if(args[0] === "off"){
              if(!message.member.hasPermission("ADMINISTRATOR"))return;
                 Tr[message.guild.id].boonlean = false;
                 request({ url: trUrl, method: 'PUT', json: Tr})
                 message.channel.send("Trésor de guild désactivé !")
-            }else{
+                return;
+            }
                if(Blchannel[message.channel.id].boonlean === true){
                     message.delete();
                     message.channel.send("commande désativé !").then(m => m.delete(5000))
@@ -89,12 +91,10 @@ module.exports.run = async (client, message, args) => {
                             color: Math.floor(Math.random() * 16777214) + 1,
                             title:`Logs: ${new Date()}`,
                             description:`[Trésor de guilde] Trésor récupéré par ${Tr[message.guild.id].taker} | [combo: ${userData[Sender.id + message.guild.id].comboTr}]`
-                                        }})
-                                })
-                            }
-                        }
-                    }
-                }
+                       }})
+                       })
+                     }
+                 }
             })     
         })
     })
