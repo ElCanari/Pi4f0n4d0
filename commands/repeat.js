@@ -1,8 +1,7 @@
 module.exports.run = async (client, message, args) => {
     if(!args[0]){
-        message.channel.send("choisi un nombre de répétitions");
+        message.channel.send("un texte à répéter");
         return;
-    
     }
     for(var i = 0; i < 25; i++){
         message.channel.send(message.content.substr(9));
