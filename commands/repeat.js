@@ -6,8 +6,8 @@ module.exports.run = async (client, message, args) => {
     if(args = 0 || args > 99){
         message.channel.send("choisi un nombre entre 1 et 99")   
     }
-    if(!args[1]){
-    message.channel.send("Spécifier le texte à répéter.")   
+    if(!message.content.substr(11)){
+        message.channel.send("Spécifier le texte à répéter.")   
     }
     if(args > 9){
     for(var i = 0; i < args[0]; i++){
