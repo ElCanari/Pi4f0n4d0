@@ -10,7 +10,7 @@ module.exports.run = async (client, message, args) => {
     message.channel.send("Spécifier le texte à répéter.")   
     }
     for(var i = 0; i < args[0]; i++){
-        message.channel.send(message.content.substr(9 + args[].length))
+        message.channel.send(message.content.substr(9 + args[0].length))
     }
     message.channel.send(":white_check_mark: répétitions en cour...")
 }
