@@ -21,7 +21,7 @@ module.exports.run = async (client, message, args) => {
           message.channel.send("**" + memberMute.tag + "**a été mute pour**" + Targs + "**minutes");
     function Timer() {
 
-    member.removeRole(role).catch(console.error)
+    memberMute.removeRole(role).catch(console.error)
   console.log(`DONE ! `);
 }
     }
