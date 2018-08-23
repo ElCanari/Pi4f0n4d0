@@ -1,5 +1,5 @@
 module.exports.run = async (client, message, args) => {
-    if(!args){
+    if(! message.content.split(" ")[0]){
         message.channel.send(":x: Tu n'as rien écrit");
         return;
         }else{
