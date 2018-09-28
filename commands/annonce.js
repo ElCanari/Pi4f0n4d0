@@ -1,5 +1,5 @@
 module.exports.run = async (client, message, args) => {
-    if(message.guild.id === process.env.rgk){
+  
       if(!message.member.hasPermission("ADMINISTRATOR")){
         message.channel.send(":x: Tu n'as pas la permission.")
         return;
@@ -20,7 +20,7 @@ module.exports.run = async (client, message, args) => {
       message.channel.send(":baby_chick: annonce envoyée !")
       }
       }
-}
+
   
   module.exports.help = {
         name:"annonce"
